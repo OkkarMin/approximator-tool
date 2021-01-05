@@ -22,15 +22,12 @@ def get_layout():
               ],
               horizontal_line(), [sg.T('Number of bits')],
               [
-                  sg.T('Total bits'),
-                  sg.Drop(values=[i for i in range(1, 33)],
-                          auto_size_text=True,
-                          enable_events=True,
-                          default_value=10,
-                          key='total_bits')
+                  sg.Column(ASIC_FPGA_Adder_Bits_Selection_layout(),
+                            key='ASIC_FPGA_Adder_Bits_Selection_layout'),
+                  sg.Column(ASIC_Multiplier_Bits_Selection_layout(),
+                            visible=True,
+                            key='ASIC_Multiplier_Bits_Selection_layout')
               ],
-              [sg.T('Accurate bits', size=(25, 1)),
-               sg.T('Inaccurate bits')],
               [
                   sg.T('4', size=(3, 1), pad=((40, 0), (0, 0)),
                        key='acc_bits'),
@@ -63,7 +60,47 @@ def horizontal_line():
     return [sg.T('_' * 100, size=(65, 1))]
 
 
-### Layout for type of hardware modules
+### Layout for number of bits selection
+def ASIC_FPGA_Adder_Bits_Selection_layout():
+    return [
+        [
+            sg.T('Total bits'),
+            sg.Drop(values=[i for i in range(1, 33)],
+                    auto_size_text=True,
+                    enable_events=True,
+                    default_value=10,
+                    key='total_bits')
+        ],
+        [sg.T('Accurate bits', size=(25, 1)),
+         sg.T('Inaccurate bits')],
+    ]
+
+
+def ASIC_Multiplier_Bits_Selection_layout():
+    return [[
+        sg.T('Total Multiplicand bits'),
+        sg.Drop(values=[i for i in range(3, 33)],
+                auto_size_text=True,
+                default_value=4,
+                key='multiplicand_bits')
+    ],
+            [
+                sg.T('Total Multiplier bits'),
+                sg.Drop(values=[i for i in range(3, 33)],
+                        auto_size_text=True,
+                        default_value=4,
+                        key='multiplier_bits')
+            ],
+            [
+                sg.T('V-cut (will be ignored if not needed)'),
+                sg.Drop(values=[i for i in range(3, 33)],
+                        auto_size_text=True,
+                        default_value=2,
+                        key='v_cut')
+            ]]
+
+
+### Layout for type of hardware modules selection
 def ASIC_Verilog_Adder_layout():
     return [[
         sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M-HERLOA'),
@@ -91,4 +128,3 @@ def FPGA_Verilog_Adder_layout():
                    size=(10, 4),
                    key='FPGA_Based_VerilogAdder_Hardware_Type')
     ]]
-###
