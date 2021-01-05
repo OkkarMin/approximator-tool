@@ -80,21 +80,21 @@ def ASIC_Multiplier_Bits_Selection_layout():
         sg.T('Total Multiplicand bits'),
         sg.Drop(values=[i for i in range(3, 33)],
                 auto_size_text=True,
-                default_value=4,
+                default_value=3,
                 key='multiplicand_bits')
     ],
             [
                 sg.T('Total Multiplier bits'),
                 sg.Drop(values=[i for i in range(3, 33)],
                         auto_size_text=True,
-                        default_value=4,
+                        default_value=3,
                         key='multiplier_bits')
             ],
             [
                 sg.T('V-cut (will be ignored if not needed)'),
                 sg.Drop(values=[i for i in range(3, 33)],
                         auto_size_text=True,
-                        default_value=2,
+                        default_value=3,
                         key='v_cut')
             ]]
 
