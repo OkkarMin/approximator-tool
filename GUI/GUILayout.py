@@ -63,6 +63,7 @@ def horizontal_line():
     return [sg.T('_' * 100, size=(65, 1))]
 
 
+### Layout for type of hardware modules
 def ASIC_Verilog_Adder_layout():
     return [[
         sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M-HERLOA'),
@@ -90,3 +91,4 @@ def FPGA_Verilog_Adder_layout():
                    size=(10, 4),
                    key='FPGA_Based_VerilogAdder_Hardware_Type')
     ]]
+###
