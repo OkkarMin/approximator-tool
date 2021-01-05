@@ -1,4 +1,6 @@
 from .ASIC_Based_VerilogAdder_Generator import ASIC_Based_VerilogAdder_Generator
+from .ASIC_Based_VerilogMultiplier_Generator import ASIC_Based_VerilogMultiplier_Generator
+from .FPGA_Based_VerilogAdder_Generator import FPGA_Based_VerilogAdder_Generator
 
 class VerilogGeneratorFactory:
     @staticmethod
@@ -6,6 +8,6 @@ class VerilogGeneratorFactory:
         if type_of_verilog_code == 'ASIC_Based_VerilogAdder':
             return ASIC_Based_VerilogAdder_Generator() 
         elif type_of_verilog_code == 'ASIC_Based_VerilogMultiplier':
-            pass
+            return ASIC_Based_VerilogMultiplier_Generator()
         elif type_of_verilog_code == 'FPGA_Based_VerilogAdder':
-            pass
+            return FPGA_Based_VerilogAdder_Generator() 

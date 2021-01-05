@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 import GUI.GUILayout
+from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from pprint import pprint
 
 sg.theme('SystemDefault')
@@ -29,34 +30,40 @@ while True:
     # Toggles number of bits selection & hardware type Listbox options
     # based on type of verilog code chosen
     if event == 'ASIC_Based_VerilogAdder':
-        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True) 
-        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False) 
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True)
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False)
         window['ASIC_Verilog_Adder_Layout'].update(visible=True)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
     elif event == 'ASIC_Based_VerilogMultiplier':
-        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=False) 
-        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=True) 
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=False)
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=True)
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=True)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
     elif event == 'FPGA_Based_VerilogAdder':
-        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True) 
-        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False) 
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True)
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False)
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
 
     if event == 'Generate':
-        chosen_options = {}  # Populate dictionary with user chosen options
+        user_chosen_options = {}
         type_of_verilog_code = [k for k, v in values.items() if v is True][0]
-        chosen_options['type_of_verilog_code'] = type_of_verilog_code
-        chosen_options['total_bits'] = total_bits
-        chosen_options['acc_bits'] = acc_bits
-        chosen_options['inacc_bits'] = inacc_bits
-        chosen_options['type_of_hardware_module'] = values[
+        user_chosen_options['type_of_verilog_code'] = type_of_verilog_code
+        user_chosen_options['total_bits'] = total_bits
+        user_chosen_options['acc_bits'] = acc_bits
+        user_chosen_options['inacc_bits'] = inacc_bits
+        user_chosen_options['type_of_hardware_module'] = values[
             f'{type_of_verilog_code}_Hardware_Type'][0]
 
-        pprint(chosen_options)
+        pprint(user_chosen_options)
+        # Generate verilog code
+        verilog_code = VerilogGenerator().generate_verilog(user_chosen_options)
+
+        print(verilog_code)
+
+        # Save generated verilog code into .v file
 
 window.close()
