@@ -25,19 +25,8 @@ def get_layout():
                   sg.Column(ASIC_FPGA_Adder_Bits_Selection_layout(),
                             key='ASIC_FPGA_Adder_Bits_Selection_layout'),
                   sg.Column(ASIC_Multiplier_Bits_Selection_layout(),
-                            visible=True,
+                            visible=False,
                             key='ASIC_Multiplier_Bits_Selection_layout')
-              ],
-              [
-                  sg.T('4', size=(3, 1), pad=((40, 0), (0, 0)),
-                       key='acc_bits'),
-                  sg.Slider(range=(1, 10),
-                            default_value=4,
-                            enable_events=True,
-                            disable_number_display=True,
-                            orientation='h',
-                            key='acc_inacc_bits_slider'),
-                  sg.T('6', size=(3, 1), key='inacc_bits')
               ],
               horizontal_line(), [sg.T('Type of hardware module')],
               [
@@ -73,6 +62,16 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
         ],
         [sg.T('Accurate bits', size=(25, 1)),
          sg.T('Inaccurate bits')],
+        [
+            sg.T('4', size=(3, 1), pad=((40, 0), (0, 0)), key='acc_bits'),
+            sg.Slider(range=(1, 10),
+                      default_value=4,
+                      enable_events=True,
+                      disable_number_display=True,
+                      orientation='h',
+                      key='acc_inacc_bits_slider'),
+            sg.T('6', size=(3, 1), key='inacc_bits')
+        ],
     ]
 
 

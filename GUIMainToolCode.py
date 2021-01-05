@@ -26,28 +26,36 @@ while True:
     window['inacc_bits'].update(total_bits - acc_bits)
     print(event, total_bits, acc_bits, inacc_bits)
 
-    # Toggles hardware type Listbox options based on type of verilog code chosen
+    # Toggles number of bits selection & hardware type Listbox options
+    # based on type of verilog code chosen
     if event == 'ASIC_Based_VerilogAdder':
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True) 
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False) 
         window['ASIC_Verilog_Adder_Layout'].update(visible=True)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
     elif event == 'ASIC_Based_VerilogMultiplier':
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=False) 
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=True) 
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=True)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
     elif event == 'FPGA_Based_VerilogAdder':
+        window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True) 
+        window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False) 
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
 
     if event == 'Generate':
-        chosen_options = {} # Populate dictionary with user chosen options
+        chosen_options = {}  # Populate dictionary with user chosen options
         type_of_verilog_code = [k for k, v in values.items() if v is True][0]
-        chosen_options['type_of_verilog_code'] = type_of_verilog_code         
+        chosen_options['type_of_verilog_code'] = type_of_verilog_code
         chosen_options['total_bits'] = total_bits
         chosen_options['acc_bits'] = acc_bits
         chosen_options['inacc_bits'] = inacc_bits
-        chosen_options['type_of_hardware_module'] = values[f'{type_of_verilog_code}_Hardware_Type'][0]
+        chosen_options['type_of_hardware_module'] = values[
+            f'{type_of_verilog_code}_Hardware_Type'][0]
 
         pprint(chosen_options)
 
