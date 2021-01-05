@@ -41,7 +41,7 @@ while True:
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
 
     if event == 'Generate':
-        chosen_options = {} # populate dictionary with user chosen options
+        chosen_options = {} # Populate dictionary with user chosen options
         type_of_verilog_code = [k for k, v in values.items() if v is True][0]
         chosen_options['type_of_verilog_code'] = type_of_verilog_code         
         chosen_options['total_bits'] = total_bits
