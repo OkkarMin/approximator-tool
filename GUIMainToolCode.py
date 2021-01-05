@@ -49,19 +49,20 @@ while True:
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
 
     if event == 'Generate':
+        # Populate user_chosen_options dict for verilog code generation
         user_chosen_options = {}
         type_of_verilog_code = [k for k, v in values.items() if v is True][0]
-        user_chosen_options['type_of_verilog_code'] = type_of_verilog_code
-        user_chosen_options['total_bits'] = total_bits
         user_chosen_options['acc_bits'] = acc_bits
         user_chosen_options['inacc_bits'] = inacc_bits
+        user_chosen_options['total_bits'] = total_bits
         user_chosen_options['type_of_hardware_module'] = values[
             f'{type_of_verilog_code}_Hardware_Type'][0]
+        user_chosen_options['type_of_verilog_code'] = type_of_verilog_code
 
         pprint(user_chosen_options)
+
         # Generate verilog code
         verilog_code = VerilogGenerator().generate_verilog(user_chosen_options)
-
         print(verilog_code)
 
         # Save generated verilog code into .v file
