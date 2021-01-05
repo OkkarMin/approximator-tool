@@ -20,12 +20,17 @@ while True:
     total_bits = values['total_bits']
     acc_bits = int(values['acc_inacc_bits_slider'])
     inacc_bits = total_bits - acc_bits
+    type_of_verilog_code = [k for k, v in values.items() if v is True][0]
+    type_of_hardware_module = values[f'{type_of_verilog_code}_Hardware_Type'][
+        0]
+    multiplicand_bits = values['multiplicand_bits']
+    multiplier_bits = values['multiplier_bits']
+    v_cut = values['v_cut']
 
     # Update GUI with respective chosen options
     window['acc_inacc_bits_slider'].update(range=(1, total_bits))
     window['acc_bits'].update(acc_bits)
     window['inacc_bits'].update(total_bits - acc_bits)
-    print(event, total_bits, acc_bits, inacc_bits)
 
     # Toggles number of bits selection & hardware type Listbox options
     # based on type of verilog code chosen
@@ -51,13 +56,15 @@ while True:
     if event == 'Generate':
         # Populate user_chosen_options dict for verilog code generation
         user_chosen_options = {}
-        type_of_verilog_code = [k for k, v in values.items() if v is True][0]
         user_chosen_options['acc_bits'] = acc_bits
         user_chosen_options['inacc_bits'] = inacc_bits
+        user_chosen_options['multiplicand_bits'] = multiplicand_bits
+        user_chosen_options['multiplier_bits'] = multiplier_bits
         user_chosen_options['total_bits'] = total_bits
         user_chosen_options['type_of_hardware_module'] = values[
             f'{type_of_verilog_code}_Hardware_Type'][0]
         user_chosen_options['type_of_verilog_code'] = type_of_verilog_code
+        user_chosen_options['v_cut'] = v_cut
 
         pprint(user_chosen_options)
 
