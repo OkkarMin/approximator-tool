@@ -114,7 +114,8 @@ def ASIC_Verilog_Adder_layout():
     return [[
         sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M-HERLOA'),
                    default_values=('HEAA'),
-                   size=(10, 4),
+                   size=(30, 4),
+                   auto_size_text=True,
                    key='ASIC_Based_VerilogAdder_Hardware_Type')
     ]]
 
@@ -125,7 +126,8 @@ def ASIC_Verilog_Multiplier_layout():
                            'MxN Accurate Binary Array Multipler',
                            'MxN PAAM01 with V-cut'),
                    default_values=('MxN Accurate Multiplier'),
-                   size=(20, 3),
+                   size=(30, 3),
+                   auto_size_text=True,
                    key='ASIC_Based_VerilogMultiplier_Hardware_Type')
     ]]
 
@@ -135,6 +137,7 @@ def FPGA_Verilog_Adder_layout():
         sg.Listbox(values=('Accurate Adder', 'HEAA', 'HOERAA', 'HOAANED',
                            'M-HERLOA'),
                    default_values=('Accurate Adder'),
-                   size=(10, 4),
+                   size=(30, 5),
+                   auto_size_text=True,
                    key='FPGA_Based_VerilogAdder_Hardware_Type')
     ]]
