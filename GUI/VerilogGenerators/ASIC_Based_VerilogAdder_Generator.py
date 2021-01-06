@@ -4,7 +4,7 @@ import VerilogStructuralAdder
 class ASIC_Based_VerilogAdder_Generator:
     @staticmethod
     def generate_verilog_code(user_chosen_options):
-        # To generate verilog_code ASIC_Based_VerilogAdder_Generator requires
+        # To generate verilog_code, ASIC_Based_VerilogAdder_Generator requires
         # type_of_hardware_module ['HEAA', 'HOERAA', ...]
         # total_bits
         # inacc_bits
