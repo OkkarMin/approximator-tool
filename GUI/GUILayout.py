@@ -132,8 +132,9 @@ def ASIC_Verilog_Multiplier_layout():
 
 def FPGA_Verilog_Adder_layout():
     return [[
-        sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M-HERLOA'),
-                   default_values=('HEAA'),
+        sg.Listbox(values=('Accurate Adder', 'HEAA', 'HOERAA', 'HOAANED',
+                           'M-HERLOA'),
+                   default_values=('Accurate Adder'),
                    size=(10, 4),
                    key='FPGA_Based_VerilogAdder_Hardware_Type')
     ]]
