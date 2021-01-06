@@ -39,8 +39,13 @@ def get_layout():
                             visible=False,
                             key='FPGA_Verilog_Adder_Layout')
               ],
-              horizontal_line(), [sg.B('Generate'),
-                                  sg.B('Exit')]]
+              horizontal_line(),
+              [
+                  sg.FolderBrowse('Select a folder to save generated file',
+                                  enable_events=True,
+                                  key='path_to_save_file')
+              ], [sg.T('by default will save in "Desktop"', key='path_to_save_file_text')],
+              [sg.B('Generate'), sg.B('Exit')]]
 
     return layout
 

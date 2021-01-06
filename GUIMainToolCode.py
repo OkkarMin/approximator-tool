@@ -1,3 +1,5 @@
+import os
+from sys import path
 import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
@@ -26,11 +28,19 @@ while True:
     multiplicand_bits = values['multiplicand_bits']
     multiplier_bits = values['multiplier_bits']
     v_cut = values['v_cut']
+    path_to_save_file = values['path_to_save_file']
 
     # Update GUI with respective chosen options
     window['acc_inacc_bits_slider'].update(range=(1, total_bits))
     window['acc_bits'].update(acc_bits)
     window['inacc_bits'].update(total_bits - acc_bits)
+
+    # Default path to save file is "Desktop" folder
+    if path_to_save_file == '':
+        default_path = os.path.expanduser('~/Desktop')
+        window['path_to_save_file_text'].update(default_path)
+    else:
+        window['path_to_save_file_text'].update(path_to_save_file)
 
     # Toggles number of bits selection & hardware type Listbox options
     # based on type of verilog code chosen
@@ -73,5 +83,6 @@ while True:
         print(verilog_code)
 
         # Save generated verilog code into .v file
+        print(path_to_save_file)
 
 window.close()
