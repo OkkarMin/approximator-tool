@@ -123,7 +123,7 @@ def ASIC_Verilog_Adder_layout():
 def ASIC_Verilog_Multiplier_layout():
     return [[
         sg.Listbox(values=('MxN Accurate Multiplier',
-                           'MxN Accurate Binary Array Multipler',
+                           'MxN Accurate Binary Array Multiplier',
                            'MxN PAAM01 with V-cut'),
                    default_values=('MxN Accurate Multiplier'),
                    size=(30, 3),
