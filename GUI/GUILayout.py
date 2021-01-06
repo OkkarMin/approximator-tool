@@ -44,8 +44,13 @@ def get_layout():
                   sg.FolderBrowse('Select a folder to save generated file',
                                   enable_events=True,
                                   key='path_to_save_file')
-              ], [sg.T('by default will save in "Desktop"', key='path_to_save_file_text')],
-              [sg.B('Generate'), sg.B('Exit')]]
+              ],
+              [
+                  sg.T('by default will save in "Desktop"',
+                       key='path_to_save_file_text')
+              ],
+              horizontal_line(), [sg.B('Generate'),
+                                  sg.B('Exit')]]
 
     return layout
 
