@@ -1,3 +1,4 @@
+from typing import Sized
 import PySimpleGUI as sg
 
 
@@ -47,6 +48,7 @@ def get_layout():
               ],
               [
                   sg.T('by default will save in "Desktop"',
+                       size=(65, 2),
                        key='path_to_save_file_text')
               ],
               horizontal_line(), [sg.B('Generate'),
@@ -65,7 +67,7 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
         [
             sg.T('Total bits'),
             sg.Drop(values=[i for i in range(1, 33)],
-                    auto_size_text=True,
+                    size=(4, 1),
                     enable_events=True,
                     default_value=10,
                     key='total_bits')
@@ -89,21 +91,21 @@ def ASIC_Multiplier_Bits_Selection_layout():
     return [[
         sg.T('Total Multiplicand bits'),
         sg.Drop(values=[i for i in range(3, 33)],
-                auto_size_text=True,
+                size=(4, 1),
                 default_value=3,
                 key='multiplicand_bits')
     ],
             [
                 sg.T('Total Multiplier bits'),
                 sg.Drop(values=[i for i in range(3, 33)],
-                        auto_size_text=True,
+                        size=(4, 1),
                         default_value=3,
                         key='multiplier_bits')
             ],
             [
                 sg.T('V-cut (will be ignored if not needed)'),
                 sg.Drop(values=[i for i in range(3, 33)],
-                        auto_size_text=True,
+                        size=(4, 1),
                         default_value=3,
                         key='v_cut')
             ]]
