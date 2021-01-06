@@ -19,10 +19,13 @@ class ASIC_Based_VerilogAdder_Generator:
             verilog_code = VerilogStructuralAdder.HEAA_Generic(
                 total_bits, inacc_bits).to_verilog()
         elif type_of_hardware_module == 'HOERAA':
-            verilog_code = f'{type_of_hardware_module} code generated'
+            verilog_code = VerilogStructuralAdder.HOERAA_Generic(
+                total_bits, inacc_bits).to_verilog()
         elif type_of_hardware_module == 'HOAANED':
-            verilog_code = f'{type_of_hardware_module} code generated'
+            verilog_code = VerilogStructuralAdder.HOAANED_Generic(
+                total_bits, inacc_bits).to_verilog()
         elif type_of_hardware_module == 'M-HERLOA':
-            verilog_code = f'{type_of_hardware_module} code generated'
+            verilog_code = VerilogStructuralAdder.M_HERLOA_Generic(
+                total_bits, inacc_bits).to_verilog()
 
         return verilog_code
