@@ -39,6 +39,7 @@ while True:
     if path_to_save_file == '':
         default_path = os.path.expanduser('~/Desktop')
         window['path_to_save_file_text'].update(default_path)
+        path_to_save_file = default_path
     else:
         window['path_to_save_file_text'].update(path_to_save_file)
 
@@ -83,6 +84,8 @@ while True:
         print(verilog_code)
 
         # Save generated verilog code into .v file
-        print(path_to_save_file)
+        full_file_path = f'{path_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
+        with open(full_file_path, 'w') as f:
+            f.write(verilog_code)
 
 window.close()
