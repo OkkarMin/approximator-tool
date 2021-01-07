@@ -2,7 +2,7 @@ import os
 import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
-from GUI.Validate import validate
+from GUI.Validator import validate
 from pprint import pprint
 
 sg.theme('SystemDefault')
