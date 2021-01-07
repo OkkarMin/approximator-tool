@@ -65,6 +65,8 @@ while True:
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
         window['acc_inacc_bits_slider_layout'].update(visible=False)
     elif event == 'FPGA_Based_VerilogAdder':
+        if type_of_hardware_module == 'Accurate Adder':
+            window['acc_inacc_bits_slider_layout'].update(visible=False)
         window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True)
         window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False)
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
