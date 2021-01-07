@@ -1,3 +1,4 @@
+from calendar import c
 import os
 from sys import path
 import PySimpleGUI as sg
@@ -18,15 +19,22 @@ while True:
         break
 
     # Extract user chosen options
-    total_bits = values['total_bits']
+    # When text input is not number, set is as 4
+    try:
+        total_bits = int(values['total_bits'])
+        multiplicand_bits = int(values['multiplicand_bits'])
+        multiplier_bits = int(values['multiplier_bits'])
+        v_cut = int(values['v_cut'])
+    except ValueError:
+        total_bits = 4
+        multiplicand_bits = 4
+        multiplier_bits = 4
+        v_cut = 4
     acc_bits = int(values['acc_inacc_bits_slider'])
     inacc_bits = total_bits - acc_bits
     type_of_verilog_code = [k for k, v in values.items() if v is True][0]
     type_of_hardware_module = values[f'{type_of_verilog_code}_Hardware_Type'][
         0]
-    multiplicand_bits = values['multiplicand_bits']
-    multiplier_bits = values['multiplier_bits']
-    v_cut = values['v_cut']
     path_to_save_file = values['path_to_save_file']
 
     # Update GUI with respective chosen options
