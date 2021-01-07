@@ -66,11 +66,10 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
     return [
         [
             sg.T('Total bits'),
-            sg.Drop(values=[i for i in range(1, 33)],
-                    size=(4, 1),
-                    enable_events=True,
-                    default_value=10,
-                    key='total_bits')
+            sg.Input(default_text='4',
+                     enable_events=True,
+                     size=(4, 1),
+                     key='total_bits')
         ],
         [sg.T('Accurate bits', size=(25, 1)),
          sg.T('Inaccurate bits')],
@@ -90,24 +89,21 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
 def ASIC_Multiplier_Bits_Selection_layout():
     return [[
         sg.T('Total Multiplicand bits'),
-        sg.Drop(values=[i for i in range(3, 33)],
-                size=(4, 1),
-                default_value=3,
-                key='multiplicand_bits')
+        sg.Input(default_text='4',
+                 size=(4, 1),
+                 enable_events=True,
+                 key='multiplicand_bits')
     ],
             [
                 sg.T('Total Multiplier bits'),
-                sg.Drop(values=[i for i in range(3, 33)],
-                        size=(4, 1),
-                        default_value=3,
-                        key='multiplier_bits')
+                sg.Input(default_text='4',
+                         enable_events=True,
+                         size=(4, 1),
+                         key='multiplier_bits')
             ],
             [
                 sg.T('V-cut (will be ignored if not needed)'),
-                sg.Drop(values=[i for i in range(3, 33)],
-                        size=(4, 1),
-                        default_value=3,
-                        key='v_cut')
+                sg.Input(default_text='', enable_events=True, key='v_cut')
             ]]
 
 
