@@ -5,10 +5,12 @@ from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from pprint import pprint
 
 sg.theme('SystemDefault')
+sg.SetOptions(font=('Helvetica', 15))
 
-window = sg.Window('Approximate Computing Tool',
-                   GUI.GUILayout.get_layout(),
-                   font=('Helvetica', 15))
+window = sg.Window(
+    'Approximate Computing Tool',
+    GUI.GUILayout.get_layout(),
+)
 
 while True:
     event, values = window.read()
