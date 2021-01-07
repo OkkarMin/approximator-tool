@@ -74,14 +74,14 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
         [sg.T('Accurate bits', size=(25, 1)),
          sg.T('Inaccurate bits')],
         [
-            sg.T('4', size=(3, 1), pad=((40, 0), (0, 0)), key='acc_bits'),
-            sg.Slider(range=(1, 10),
-                      default_value=4,
+            sg.T('1', size=(3, 1), pad=((40, 0), (0, 0)), key='acc_bits'),
+            sg.Slider(range=(1, 4),
+                      default_value=1,
                       enable_events=True,
                       disable_number_display=True,
                       orientation='h',
                       key='acc_inacc_bits_slider'),
-            sg.T('6', size=(3, 1), key='inacc_bits')
+            sg.T('3', size=(3, 1), key='inacc_bits')
         ],
     ]
 
@@ -103,7 +103,10 @@ def ASIC_Multiplier_Bits_Selection_layout():
             ],
             [
                 sg.T('V-cut (will be ignored if not needed)'),
-                sg.Input(default_text='', enable_events=True, key='v_cut')
+                sg.Input(default_text='',
+                         enable_events=True,
+                         size=(4, 1),
+                         key='v_cut')
             ]]
 
 
