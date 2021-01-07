@@ -90,6 +90,7 @@ while True:
         window['v_cut_text'].update(visible=False)
         window['v_cut'].update(visible=False)
 
+    # When user press 'Generate' button
     if event == 'Generate':
         # Populate user_chosen_options dict for verilog code generation
         user_chosen_options = {}
