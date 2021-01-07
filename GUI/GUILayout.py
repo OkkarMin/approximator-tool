@@ -94,27 +94,28 @@ def Accurate_Inaccurate_Bits_Slider_layout():
 
 
 def ASIC_Multiplier_Bits_Selection_layout():
-    return [[
-        sg.T('Total Multiplicand bits'),
-        sg.Input(default_text='4',
-                 size=(4, 1),
-                 enable_events=True,
-                 key='multiplicand_bits')
-    ],
-            [
-                sg.T('Total Multiplier bits'),
-                sg.Input(default_text='4',
-                         enable_events=True,
-                         size=(4, 1),
-                         key='multiplier_bits')
-            ],
-            [
-                sg.T('V-cut (will be ignored if not needed)'),
-                sg.Input(default_text='3',
-                         enable_events=True,
-                         size=(4, 1),
-                         key='v_cut')
-            ]]
+    return [
+        [
+            sg.T('Total Multiplicand bits'),
+            sg.Input(default_text='4',
+                     size=(4, 1),
+                     enable_events=True,
+                     key='multiplicand_bits'),
+            sg.T('V-cut', visible=False, key='v_cut_text'),
+            sg.Input(default_text='3',
+                     enable_events=True,
+                     size=(4, 1),
+                     visible=False,
+                     key='v_cut')
+        ],
+        [
+            sg.T('Total Multiplier bits'),
+            sg.Input(default_text='4',
+                     enable_events=True,
+                     size=(4, 1),
+                     key='multiplier_bits'),
+        ],
+    ]
 
 
 ### Layout for type of hardware modules selection
@@ -136,6 +137,7 @@ def ASIC_Verilog_Multiplier_layout():
                    default_values=('MxN Accurate Multiplier'),
                    size=(30, 3),
                    auto_size_text=True,
+                   enable_events=True,
                    key='ASIC_Based_VerilogMultiplier_Hardware_Type')
     ]]
 
