@@ -25,6 +25,8 @@ def get_layout():
               [
                   sg.Column(ASIC_FPGA_Adder_Bits_Selection_layout(),
                             key='ASIC_FPGA_Adder_Bits_Selection_layout'),
+                  sg.Column(Accurate_Inaccurate_Bits_Slider_layout(),
+                            key='acc_inacc_bits_slider_layout'),
                   sg.Column(ASIC_Multiplier_Bits_Selection_layout(),
                             visible=False,
                             key='ASIC_Multiplier_Bits_Selection_layout')
@@ -71,6 +73,11 @@ def ASIC_FPGA_Adder_Bits_Selection_layout():
                      size=(4, 1),
                      key='total_bits')
         ],
+    ]
+
+
+def Accurate_Inaccurate_Bits_Slider_layout():
+    return [
         [sg.T('Accurate bits', size=(25, 1)),
          sg.T('Inaccurate bits')],
         [
@@ -103,7 +110,7 @@ def ASIC_Multiplier_Bits_Selection_layout():
             ],
             [
                 sg.T('V-cut (will be ignored if not needed)'),
-                sg.Input(default_text='',
+                sg.Input(default_text='3',
                          enable_events=True,
                          size=(4, 1),
                          key='v_cut')
@@ -137,8 +144,9 @@ def FPGA_Verilog_Adder_layout():
     return [[
         sg.Listbox(values=('Accurate Adder', 'HEAA', 'HOERAA', 'HOAANED',
                            'M-HERLOA'),
-                   default_values=('Accurate Adder'),
+                   default_values=('HEAA'),
                    size=(30, 5),
                    auto_size_text=True,
+                   enable_events=True,
                    key='FPGA_Based_VerilogAdder_Hardware_Type')
     ]]

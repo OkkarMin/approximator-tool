@@ -1,6 +1,4 @@
-from calendar import c
 import os
-from sys import path
 import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
@@ -58,18 +56,27 @@ while True:
         window['ASIC_Verilog_Adder_Layout'].update(visible=True)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
+        window['acc_inacc_bits_slider_layout'].update(visible=True)
     elif event == 'ASIC_Based_VerilogMultiplier':
         window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=False)
         window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=True)
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=True)
         window['FPGA_Verilog_Adder_Layout'].update(visible=False)
+        window['acc_inacc_bits_slider_layout'].update(visible=False)
     elif event == 'FPGA_Based_VerilogAdder':
         window['ASIC_FPGA_Adder_Bits_Selection_layout'].update(visible=True)
         window['ASIC_Multiplier_Bits_Selection_layout'].update(visible=False)
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
+    # Accurate and Inaccurate bits selection slider should not be visible fo
+    # FPGA Accurate Adder
+    elif event == 'FPGA_Based_VerilogAdder_Hardware_Type':
+        if type_of_hardware_module == 'Accurate Adder':
+            window['acc_inacc_bits_slider_layout'].update(visible=False)
+        else:
+            window['acc_inacc_bits_slider_layout'].update(visible=True)
 
     if event == 'Generate':
         # Populate user_chosen_options dict for verilog code generation
