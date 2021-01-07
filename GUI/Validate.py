@@ -31,7 +31,7 @@ def validate(user_chosen_options):
     # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
     if (inaccurate_adder and not (3 <= inacc_bits <= total_bits - 1)):
         valid = False
-        error_message = 'Inaccurate bits should be >=3 but <= Total bits-1'
+        error_message = 'Inaccurate bits should be >= 3 but <= Total bits-1'
 
     # Total multiplicand bits and multiplier bits should be >=3
     if (not (multiplicand_bits >= 3 and multiplier_bits >= 3)):
