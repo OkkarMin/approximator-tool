@@ -1,5 +1,6 @@
 from .VerilogGeneratorFactory import VerilogGeneratorFactory
 
+
 class VerilogGenerator:
     @staticmethod
     def generate_verilog(user_chosen_options):
