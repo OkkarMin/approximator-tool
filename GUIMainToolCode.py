@@ -6,7 +6,6 @@ from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from pprint import pprint
 
 sg.theme('SystemDefault')
-sg.set_options()
 
 window = sg.Window('Approximate Computing Tool',
                    GUI.GUILayout.get_layout(),
