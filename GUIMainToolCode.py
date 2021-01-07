@@ -111,13 +111,22 @@ while True:
 
         pprint(user_chosen_options)
 
-        # Generate verilog code
-        verilog_code = VerilogGenerator().generate_verilog(user_chosen_options)
-        print(verilog_code)
+        valid, error_message = validate(user_chosen_options)
 
-        # Save generated verilog code into .v file
-        full_file_path = f'{path_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
-        with open(full_file_path, 'w') as f:
-            f.write(verilog_code)
+        if not valid:
+            sg.popup_non_blocking(
+                error_message,
+                title="Please check your input",
+            )
+        else:
+            # Generate verilog code
+            verilog_code = VerilogGenerator().generate_verilog(
+                user_chosen_options)
+            print(verilog_code)
+
+            # Save generated verilog code into .v file
+            full_file_path = f'{path_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
+            with open(full_file_path, 'w') as f:
+                f.write(verilog_code)
 
 window.close()
