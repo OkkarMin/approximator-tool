@@ -2,6 +2,7 @@ import os
 import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
+from GUI.Validate import validate
 from pprint import pprint
 
 sg.theme('SystemDefault')
@@ -15,11 +16,14 @@ window = sg.Window(
 while True:
     event, values = window.read()
 
-    if event == sg.WIN_CLOSED or event == 'Exit':  # If user closed window with X or if user clicked "Exit" button then exit
+    # If user closed window with X or if user clicked "Exit" button then exit
+    if event == sg.WIN_CLOSED or event == 'Exit':
         break
 
     # Extract user chosen options
     # When text input is not number, set is as 4
+    # to make sure GUI keep running without crashing
+    # input validation is performed when 'Generate' button is pressed
     try:
         total_bits = int(values['total_bits'])
         multiplicand_bits = int(values['multiplicand_bits'])
@@ -92,7 +96,8 @@ while True:
 
     # When user press 'Generate' button
     if event == 'Generate':
-        # Populate user_chosen_options dict for verilog code generation
+        # Populate user_chosen_options dict for
+        # validation and verilog code generation
         user_chosen_options = {}
         user_chosen_options['acc_bits'] = acc_bits
         user_chosen_options['inacc_bits'] = inacc_bits
