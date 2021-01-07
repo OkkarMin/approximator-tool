@@ -72,7 +72,7 @@ while True:
         window['ASIC_Verilog_Adder_Layout'].update(visible=False)
         window['ASIC_Verilog_Multiplier_Layout'].update(visible=False)
         window['FPGA_Verilog_Adder_Layout'].update(visible=True)
-    # Accurate and Inaccurate bits selection slider should not be visible fo
+    # Accurate and Inaccurate bits selection slider should not be visible for
     # FPGA Accurate Adder
     elif event == 'FPGA_Based_VerilogAdder_Hardware_Type':
         if type_of_hardware_module == 'Accurate Adder':
