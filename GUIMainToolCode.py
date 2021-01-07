@@ -39,20 +39,20 @@ while True:
     type_of_verilog_code = [k for k, v in values.items() if v is True][0]
     type_of_hardware_module = values[f'{type_of_verilog_code}_Hardware_Type'][
         0]
-    path_to_save_file = values['path_to_save_file']
+    folder_to_save_file = values['folder_to_save_file']
 
     # Update GUI with respective chosen options
     window['acc_inacc_bits_slider'].update(range=(1, total_bits))
     window['acc_bits'].update(acc_bits)
     window['inacc_bits'].update(total_bits - acc_bits)
 
-    # Default path to save file is "Desktop" folder
-    if path_to_save_file == '':
+    # Default folder to save file is "Desktop" folder
+    if folder_to_save_file == '':
         default_path = os.path.expanduser('~/Desktop')
-        window['path_to_save_file_text'].update(default_path)
-        path_to_save_file = default_path
+        window['folder_to_save_file_text'].update(default_path)
+        folder_to_save_file = default_path
     else:
-        window['path_to_save_file_text'].update(path_to_save_file)
+        window['folder_to_save_file_text'].update(folder_to_save_file)
 
     # Toggles number of bits selection & hardware type Listbox options
     # based on type of verilog code chosen
@@ -125,7 +125,7 @@ while True:
             print(verilog_code)
 
             # Save generated verilog code into .v file
-            full_file_path = f'{path_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
+            full_file_path = f'{folder_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
             with open(full_file_path, 'w') as f:
                 f.write(verilog_code)
 
