@@ -16,7 +16,11 @@ def validate(user_chosen_options):
     accurate_adder = True if (
         type_of_verilog_code == 'FPGA_Based_VerilogAdder'
         and type_of_hardware_module == 'Accurate Adder') else False
-    inaccurate_adder = not accurate_adder
+
+    inaccurate_adder = True if (
+        type_of_verilog_code == 'ASIC_Based_VerilogAdder'
+        or type_of_verilog_code == 'FPGA_Based_VerilogAdder'
+        and not type_of_hardware_module == 'Accurate Adder') else False
 
     # Accurate Adder should have total_bits >= 1
     if (accurate_adder and not total_bits >= 1):
