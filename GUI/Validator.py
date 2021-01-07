@@ -42,6 +42,6 @@ def validate(user_chosen_options):
     if (type_of_hardware_module == 'MxN PAAM01 with V-cut'
             and not (0 < v_cut <= multiplicand_bits)):
         valid = False
-        error_message = 'V-cut should be >0 but <= Total Multiplicand bits'
+        error_message = 'V-cut should be > 0 but <= Total Multiplicand bits'
 
     return valid, error_message
