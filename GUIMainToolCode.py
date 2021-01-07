@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from GUI.Validator import validate
+from GUI.Saver import save_to_file
 from pprint import pprint
 
 sg.theme('SystemDefault')
@@ -108,6 +109,7 @@ while True:
             f'{type_of_verilog_code}_Hardware_Type'][0]
         user_chosen_options['type_of_verilog_code'] = type_of_verilog_code
         user_chosen_options['v_cut'] = v_cut
+        user_chosen_options['folder_to_save_file'] = folder_to_save_file
 
         pprint(user_chosen_options)
 
@@ -124,9 +126,7 @@ while True:
                 user_chosen_options)
             print(verilog_code)
 
-            # Save generated verilog code into .v file
-            full_file_path = f'{folder_to_save_file}/{type_of_verilog_code}_{type_of_hardware_module}_{total_bits}b{inacc_bits}inacc.v'
-            with open(full_file_path, 'w') as f:
-                f.write(verilog_code)
+            # Save generated verilog code into .v file with proper naming
+            save_to_file(verilog_code, user_chosen_options)
 
 window.close()
