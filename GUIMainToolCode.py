@@ -113,9 +113,9 @@ while True:
 
         pprint(user_chosen_options)
 
-        valid, error_message = validate(user_chosen_options)
+        is_valid, error_message = validate(user_chosen_options)
 
-        if not valid:
+        if not is_valid:
             sg.popup_non_blocking(
                 error_message,
                 title="Please check your input",

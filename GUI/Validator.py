@@ -1,5 +1,5 @@
 def validate(user_chosen_options):
-    valid = True
+    is_valid = True
     error_message = ''
 
     # Extract variables from user_chosen_options dict
@@ -24,28 +24,28 @@ def validate(user_chosen_options):
 
     # Accurate Adder should have total_bits >= 1
     if (accurate_adder and not total_bits >= 1):
-        valid = False
+        is_valid = False
         error_message = 'Total bits should be >= 1 for Accurate Adders'
 
     # Inaccurate Adders should have total_bits >= 4
     if (inaccurate_adder and not total_bits >= 4):
-        valid = False
+        is_valid = False
         error_message = 'Total bits should be >= 4 for Inaccurate Adders'
 
     # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
     if (inaccurate_adder and not (3 <= inacc_bits <= total_bits - 1)):
-        valid = False
+        is_valid = False
         error_message = 'Inaccurate bits should be >= 3 but <= Total bits-1'
 
     # Total multiplicand bits and multiplier bits should be >=3
     if (not (multiplicand_bits >= 3 and multiplier_bits >= 3)):
-        valid = False
+        is_valid = False
         error_message = 'Total Multiplicand bits and Total Multiplier bits should be >= 3'
 
     # V-cut should be > 0 but <= multiplicand_bits
     if (type_of_hardware_module == 'MxN PAAM01 with V-cut'
             and not (0 < v_cut <= multiplicand_bits)):
-        valid = False
+        is_valid = False
         error_message = 'V-cut should be > 0 but <= Total Multiplicand bits'
 
-    return valid, error_message
+    return is_valid, error_message
