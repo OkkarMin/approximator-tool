@@ -3,7 +3,7 @@ import PySimpleGUI as sg
 import GUI.GUILayout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from GUI.Validator import validate
-from GUI.Saver import save_to_file
+from GUI.FileSaver import save_to_file
 from pprint import pprint
 
 sg.theme('SystemDefault')
