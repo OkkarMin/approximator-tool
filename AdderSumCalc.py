@@ -11,9 +11,9 @@ def accurate_sum_calc(acc_bits,input_a,input_b,input_clk,output_sum): # accurate
         right_val = vast.Plus(vast.Partselect(vast.Identifier(input_a),vast.IntConst(ascii(acc_bits-1)),vast.IntConst('0')),
                               vast.Partselect(vast.Identifier(input_b),vast.IntConst(ascii(acc_bits-1)),vast.IntConst('0')));
     elif(acc_bits==1):
-        left=vast.Lvalue(vast.Pointer(vast.Identifier(output_sum),vast.IntConst('0')));
-        right_val = vast.Plus(vast.Pointer(vast.Identifier(input_a),vast.IntConst('0')),
-                              vast.Pointer(vast.Identifier(input_b),vast.IntConst('0')));        
+        left=vast.Lvalue(vast.Partselect(vast.Identifier(output_sum),vast.IntConst('1'),vast.IntConst('0')));
+        right_val = vast.Plus(vast.Identifier(input_a),
+                              vast.Identifier(input_b));             
     right=vast.Rvalue(right_val);
     total_sum=[vast.NonblockingSubstitution(left,right)];
 
