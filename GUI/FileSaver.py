@@ -6,6 +6,8 @@ def save_to_file(verilog_code, user_chosen_options):
     multiplier_bits = user_chosen_options['multiplier_bits']
     total_bits = user_chosen_options['total_bits']
     type_of_hardware_module = user_chosen_options['type_of_hardware_module']
+    type_of_hardware_module = type_of_hardware_module.replace('-', '_')
+    type_of_hardware_module = type_of_hardware_module.replace(' ', '_')
     type_of_verilog_code = user_chosen_options['type_of_verilog_code']
     v_cut = user_chosen_options['v_cut']
     folder_to_save_file = user_chosen_options['folder_to_save_file']
@@ -37,8 +39,6 @@ def save_to_file(verilog_code, user_chosen_options):
         if type_of_hardware_module == 'MxN PAAM01 with V-cut':
             full_file_path += f'/PAAM01_{multiplicand_bits}x{multiplier_bits}_V_cut_{v_cut}.v'
         else:
-            type_of_hardware_module = type_of_hardware_module.replace(' ', '_')
-            type_of_hardware_module = type_of_hardware_module.replace('-', '_')
             full_file_path += f'/{type_of_verilog_code}_{type_of_hardware_module}_{multiplicand_bits}x{multiplier_bits}.v'
 
     with open(full_file_path, 'w') as f:
