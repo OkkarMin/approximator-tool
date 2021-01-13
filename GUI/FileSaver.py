@@ -36,7 +36,7 @@ def save_to_file(verilog_code, user_chosen_options):
 
     # Multiplier file naming style
     if multiplier:
-        if type_of_hardware_module == 'MxN PAAM01 with V-cut':
+        if type_of_hardware_module == 'MxN_PAAM01_with_V_cut':
             full_file_path += f'/PAAM01_{multiplicand_bits}x{multiplier_bits}_V_cut_{v_cut}.v'
         else:
             full_file_path += f'/{type_of_verilog_code}_{type_of_hardware_module}_{multiplicand_bits}x{multiplier_bits}.v'
