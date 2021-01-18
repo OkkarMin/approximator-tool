@@ -1,6 +1,6 @@
 import os
 import PySimpleGUI as sg
-import GUI.GUILayout
+from GUI.Layout import get_layout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
 from GUI.Validator import validate
 from GUI.FileSaver import save_to_file
@@ -11,7 +11,7 @@ sg.SetOptions(font=('Helvetica', 15))
 
 window = sg.Window(
     'Approximate Computing Tool',
-    GUI.GUILayout.get_layout(),
+    get_layout(),
 )
 
 while True:
