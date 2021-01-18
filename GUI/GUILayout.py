@@ -1,4 +1,3 @@
-from typing import Sized
 import PySimpleGUI as sg
 
 
