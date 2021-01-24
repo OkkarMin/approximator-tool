@@ -102,7 +102,7 @@ def ASIC_Multiplier_Bits_Selection_layout():
 ### Layout for type of error analysis module selection
 def ASIC_Adder_Error_Analysis_layout():
     return [[
-        sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M-HERLOA'),
+        sg.Listbox(values=('HEAA', 'HOERAA', 'HOAANED', 'M_HERLOA'),
                    default_values=('HEAA'),
                    size=(30, 4),
                    auto_size_text=True,
