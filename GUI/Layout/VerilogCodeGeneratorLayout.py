@@ -56,10 +56,6 @@ def get_verilog_code_generator_layout():
                                 sg.B('Exit')]]
 
 
-def horizontal_line():
-    return [sg.T('_' * 100, size=(65, 1))]
-
-
 ### Layout for number of bits selection
 def ASIC_FPGA_Adder_Bits_Selection_layout():
     return [
