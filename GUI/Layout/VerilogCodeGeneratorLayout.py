@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from .CommonElements import horizontal_line
 
 
 def get_verilog_code_generator_layout():
