@@ -2,8 +2,8 @@ import os
 import PySimpleGUI as sg
 from GUI.Layout import get_layout
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
-from GUI.Validator import validate
-from GUI.FileSaver import save_to_file
+from GUI.Utils.Validator import validate
+from GUI.Utils.FileSaver import save_to_file
 from pprint import pprint
 
 sg.theme('SystemDefault')
