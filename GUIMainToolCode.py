@@ -19,7 +19,7 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
 
-    # Reacts to user inputs in Verilog Code Generator Tab
+    # Reacts to user inputs in respective tabs
     VerilogCodeGeneratorTabLogic(window, event, values)
 
 window.close()
