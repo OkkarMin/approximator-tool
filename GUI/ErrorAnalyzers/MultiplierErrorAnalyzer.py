@@ -1,15 +1,10 @@
 import random
 import math
 import ApproxMultipliers
-import PySimpleGUI as sg
-
+from .PrintToDebugWindow import print
 ## Multiplier error calculations (AE, MAE, RMSE)
 
 # Error Calculation for PAAM01 Multiplier with different V-cuts
-
-
-def print(*args):
-    sg.Print(*args, font='Helvetica 15')
 
 
 def PAAM01_VCut(N1, N2, V_val):

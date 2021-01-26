@@ -1,15 +1,10 @@
 import random
 import math
 import ApproxAdders
-import PySimpleGUI as sg
-
+from .PrintToDebugWindow import print
 ## Error Calculations (AE, MAE, RMSE)
 
 # HEAA
-
-
-def print(*args):
-    sg.Print(*args, font='Helvetica 15')
 
 
 def HEAA(tot_num_bits, inaccurate_bits):
