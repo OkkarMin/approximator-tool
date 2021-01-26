@@ -19,7 +19,9 @@ while True:
         break
 
     # Reacts to user inputs in respective tabs
-    VerilogCodeGeneratorTabLogic(window, event, values)
-    ErrorAnalysisTabLogic(window, event, values)
+    if values['tab'] == 'first_tab':
+        VerilogCodeGeneratorTabLogic(window, event, values)
+    elif values['tab'] == 'second_tab':
+        ErrorAnalysisTabLogic(window, event, values)
 
 window.close()

@@ -9,10 +9,14 @@ def get_layout():
             sg.Tab(
                 'Verilog Code Generator',
                 get_verilog_code_generator_layout(),
+                key='first_tab',
             ),
             sg.Tab(
                 'Error Analysis',
                 get_error_analysis_layout(),
-            )
-        ]])
+                key='second_tab',
+            ),
+        ]],
+                    enable_events=True,
+                    key='tab')
     ]]
