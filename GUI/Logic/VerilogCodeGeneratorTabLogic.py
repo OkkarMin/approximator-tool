@@ -2,7 +2,7 @@ import os
 from pprint import pprint
 import PySimpleGUI as sg
 from GUI.VerilogGenerators.VerilogGenerator import VerilogGenerator
-from GUI.Utils.Validator import validate
+from GUI.Validator import validate
 from GUI.Utils.FileSaver import save_to_file
 
 
@@ -99,7 +99,8 @@ def VerilogCodeGeneratorTabLogic(window, event, values):
 
         pprint(user_chosen_options)
 
-        is_valid, error_message = validate(user_chosen_options)
+        is_valid, error_message = validate(user_chosen_options,
+                                           'VerilogCodeGeneratorTabValidator')
 
         if not is_valid:
             sg.popup_non_blocking(
