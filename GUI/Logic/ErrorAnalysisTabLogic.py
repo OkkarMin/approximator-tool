@@ -1,5 +1,6 @@
-from GUI.ErrorAnalyzers import AdderErrorAnalyzer, MultiplierErrorAnalyzer
 import PySimpleGUI as sg
+from GUI.ErrorAnalyzers import AdderErrorAnalyzer, MultiplierErrorAnalyzer
+from GUI.Validator import validate
 
 
 def ErrorAnalysisTabLogic(window, event, values):
@@ -66,6 +67,17 @@ def ErrorAnalysisTabLogic(window, event, values):
         user_chosen_options[
             'type_of_error_analysis_hardware'] = type_of_error_analysis_hardware
         user_chosen_options['v_cut'] = v_cut
+
+        is_valid, error_message = validate(user_chosen_options,
+                                           'ErrorAnalysisTabValidator')
+
+        if (not is_valid):
+            sg.popup_non_blocking(
+                error_message,
+                title="Please check your input",
+            )
+
+            return
 
         # Perform analysis
         sg.Print('Please wait performing computation...', font='Helvetica 15')
