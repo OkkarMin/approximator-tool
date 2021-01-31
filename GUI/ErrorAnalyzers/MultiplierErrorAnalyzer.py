@@ -1,7 +1,7 @@
 import random
 import math
 import ApproxMultipliers
-from .PrintToDebugWindow import print
+from GUI.Utils.PrintToDebugWindow import print
 ## Multiplier error calculations (AE, MAE, RMSE)
 
 # Error Calculation for PAAM01 Multiplier with different V-cuts

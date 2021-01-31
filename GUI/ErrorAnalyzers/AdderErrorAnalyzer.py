@@ -1,7 +1,7 @@
 import random
 import math
 import ApproxAdders
-from .PrintToDebugWindow import print
+from GUI.Utils.PrintToDebugWindow import print
 ## Error Calculations (AE, MAE, RMSE)
 
 # HEAA
