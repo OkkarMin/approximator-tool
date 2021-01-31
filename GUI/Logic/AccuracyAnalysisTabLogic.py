@@ -1,5 +1,5 @@
-from GUI.ErrorAnalyzers import AdderErrorAnalyzer, MultiplierErrorAnalyzer
 import PySimpleGUI as sg
+from GUI.AccuracyAnalyzers import AdderAccuracyAnalyzer, MultiplierAccuracyAnalyzer
 
 
 def AccuracyAnalysisTabLogic(window, event, values):
@@ -107,6 +107,7 @@ def AccuracyAnalysisTabLogic(window, event, values):
         # Perform analysis
         sg.Print('Please wait performing computation...', font='Helvetica 15')
 
-        # TODO: implement AccuracyAnalysis
-
-        sg.Print(user_chosen_options)
+        if type_of_accuracy_analysis == 'Adder_Accuracy_Analysis':
+            AdderAccuracyAnalyzer.analyze(user_chosen_options)
+        else:
+            MultiplierAccuracyAnalyzer.analyze(user_chosen_options)
