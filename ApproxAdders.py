@@ -55,11 +55,18 @@ def HOAANED_approx(num1,num2,tot_num_bits,inaccurate_bits):
 def M_HERLOA_approx(num1,num2,tot_num_bits,inaccurate_bits):
     num1=num1%(2**tot_num_bits);
     num2=num2%(2**tot_num_bits);
-    M_HERLOA_estimate_sum=(((num1>>inaccurate_bits)+(num2>>inaccurate_bits)+(((num1>>(inaccurate_bits-1))%2)&((num2>>(inaccurate_bits-1))%2)))<<inaccurate_bits)  \
-                             + (((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))|(((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2)))<<(inaccurate_bits-1))  \
-                             + (((((num1>>(inaccurate_bits-2))%2)|((num2>>(inaccurate_bits-2))%2))&(not((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2))&(not(((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))))))<<(inaccurate_bits-2))  \
-                             + ((num1%(2**(inaccurate_bits-2)))|(num2%(2**(inaccurate_bits-2)))|(((2**(inaccurate_bits-2)-1)*(((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))&((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2))))))  \
-                                                                                                 |(2**(inaccurate_bits-4)-1)));
+    if(inaccurate_bits>=4):
+        M_HERLOA_estimate_sum=(((num1>>inaccurate_bits)+(num2>>inaccurate_bits)+(((num1>>(inaccurate_bits-1))%2)&((num2>>(inaccurate_bits-1))%2)))<<inaccurate_bits)  \
+                                + (((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))|(((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2)))<<(inaccurate_bits-1))  \
+                                + (((((num1>>(inaccurate_bits-2))%2)|((num2>>(inaccurate_bits-2))%2))&(not((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2))&(not(((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))))))<<(inaccurate_bits-2))  \
+                                + ((num1%(2**(inaccurate_bits-2)))|(num2%(2**(inaccurate_bits-2)))|(((2**(inaccurate_bits-2)-1)*(((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))&((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2))))))  \
+                                                                                                     |(2**(inaccurate_bits-4)-1)));
+    elif(inaccurate_bits==3):
+        M_HERLOA_estimate_sum=(((num1>>inaccurate_bits)+(num2>>inaccurate_bits)+(((num1>>(inaccurate_bits-1))%2)&((num2>>(inaccurate_bits-1))%2)))<<inaccurate_bits)  \
+                                + (((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))|(((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2)))<<(inaccurate_bits-1))  \
+                                + (((((num1>>(inaccurate_bits-2))%2)|((num2>>(inaccurate_bits-2))%2))&(not((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2))&(not(((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))))))<<(inaccurate_bits-2))  \
+                                + ((num1%(2**(inaccurate_bits-2)))|(num2%(2**(inaccurate_bits-2)))|((2**(inaccurate_bits-2)-1)*(((((num1>>(inaccurate_bits-1))%2)^((num2>>(inaccurate_bits-1))%2))&((((num1>>(inaccurate_bits-2))%2)&((num2>>(inaccurate_bits-2))%2)))))));
+
     M_HERLOA_estimate_sum=M_HERLOA_estimate_sum%(2**(tot_num_bits+1));
     return M_HERLOA_estimate_sum;
     
