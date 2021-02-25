@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 from GUI.AccuracyAnalyzers import AdderAccuracyAnalyzer, MultiplierAccuracyAnalyzer
+from GUI.Validator import validate
 
 
 def AccuracyAnalysisTabLogic(window, event, values):
@@ -103,6 +104,17 @@ def AccuracyAnalysisTabLogic(window, event, values):
             'multiplier_first_unsigned_number'] = multiplier_first_unsigned_number
         user_chosen_options[
             'multiplier_second_unsigned_number'] = multiplier_second_unsigned_number
+
+        is_valid, error_message = validate(user_chosen_options,
+                                           'AccuracyAnalysisTabValidator')
+
+        if (not is_valid):
+            sg.popup_non_blocking(
+                error_message,
+                title="Please check your input",
+            )
+
+            return
 
         # Perform analysis
         sg.Print('Please wait performing computation...', font='Helvetica 15')
