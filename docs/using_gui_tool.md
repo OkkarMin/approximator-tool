@@ -31,6 +31,8 @@ Insert a GIF of using verilog code generator here
 |  5  | Choose location in computer to save generated verilog file                                                              |            `Desktop`            |                  -                  |
 |  6  | Generate verilog code or exit                                                                                           |                -                |                  -                  |
 
+!> As of 4 Mar 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](link-to-how-to-edit). We are working to fix it
+
 ## Error Analysis
 
 Insert a GIF of using error analysis here
