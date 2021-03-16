@@ -9,25 +9,29 @@ class AccuracyAnalysisTabValidator:
         multiplier_bits = user_chosen_options['multiplier_bits']
         total_bits = user_chosen_options['total_bits']
         v_cut = user_chosen_options['v_cut']
+        type_of_accuracy_analysis = user_chosen_options[
+            'type_of_accuracy_analysis']
 
-        # Inaccurate Adders should have total_bits >= 4
-        if not total_bits >= 4:
-            is_valid = False
-            error_message = 'Total bits should be >= 4 for Inaccurate Adders'
+        if type_of_accuracy_analysis == 'Adder_Accuracy_Analysis':
+            # Inaccurate Adders should have total_bits >= 4
+            if not total_bits >= 4:
+                is_valid = False
+                error_message = 'Total bits should be >= 4 for Inaccurate Adders'
 
-        # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
-        if not (3 <= inacc_bits <= total_bits - 1):
-            is_valid = False
-            error_message = 'Inaccurate bits should be >= 3 but <= Total bits-1'
+            # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
+            if not (3 <= inacc_bits <= total_bits - 1):
+                is_valid = False
+                error_message = 'Inaccurate bits should be >= 3 but <= Total bits-1'
 
-        # Total multiplicand bits and multiplier bits should be >=3
-        if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
-            is_valid = False
-            error_message = 'Total Multiplicand bits and Total Multiplier bits should be >= 3'
+        if type_of_accuracy_analysis == 'Multiplier_Accuracy_Analysis':
+            # V-cut should be > 0 but <= multiplicand_bits
+            if not (0 < v_cut <= multiplicand_bits):
+                is_valid = False
+                error_message = 'V-cut should be > 0 but <= Total Multiplicand bits'
 
-        # V-cut should be > 0 but <= multiplicand_bits
-        if not (0 < v_cut <= multiplicand_bits):
-            is_valid = False
-            error_message = 'V-cut should be > 0 but <= Total Multiplicand bits'
+            # Total multiplicand bits and multiplier bits should be >=3
+            if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
+                is_valid = False
+                error_message = 'Total Multiplicand bits and Total Multiplier bits should be >= 3'
 
         return is_valid, error_message
