@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from GUI.AccuracyAnalyzers import AdderAccuracyAnalyzer, MultiplierAccuracyAnalyzer
+from GUI.Analyzers.AccuracyAnalyzers import AdderAccuracyAnalyzer, MultiplierAccuracyAnalyzer
 from GUI.Validator import validate
 
 

@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from GUI.ErrorAnalyzers import AdderErrorAnalyzer, MultiplierErrorAnalyzer
+from GUI.Analyzers.ErrorAnalyzers import AdderErrorAnalyzer, MultiplierErrorAnalyzer
 from GUI.Validator import validate
 
 
