@@ -53,11 +53,11 @@ Insert a GIF of using accuracy analysis here
 
 ![Accuracy Analysis](_images/accuracy_analysis.png)
 
-| No. | Description                                                                                                            |        Default Option(s)        |                Constraint(s)                 |
-| :-: | ---------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :------------------------------------------: |
-|  1  | Type of Accuracy Analysis to carry out, choose one of `[Adder Accuracy Analysis, Multiplier Accuracy Analysis]`        |    `Adder Accuracy Analysis`    |                      -                       |
-|  2  | Total number of bits for approximate computing module                                                                  |               `4`               |           `4 <= total_bits <= 32`            |
-|  3  | Accurate bits and Inaccurate bits selection. Move slider to adjust.                                                    | `acc_bits = 1` `inacc_bits = 3` |     `3 <= inacc_bits <= total_bits - 1`      |
-|  4  | Two unsigned decimal numbers to be added using accurate adder and to be compared against inaccurate adder for accuracy |              `12`               | `0 <= decimal_number <= 2^(total_bits-1) -1` |
-|  5  | Type of hardware module to analyze error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`                             |             `HEAA`              |                      -                       |
-|  6  | Analyse Accuracy                                                                                                       |                -                |                      -                       |
+| No. | Description                                                                                                            |        Default Option(s)        |               Constraint(s)                |
+| :-: | ---------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :----------------------------------------: |
+|  1  | Type of Accuracy Analysis to carry out, choose one of `[Adder Accuracy Analysis, Multiplier Accuracy Analysis]`        |    `Adder Accuracy Analysis`    |                     -                      |
+|  2  | Total number of bits for approximate computing module                                                                  |               `4`               |          `4 <= total_bits <= 32`           |
+|  3  | Accurate bits and Inaccurate bits selection. Move slider to adjust.                                                    | `acc_bits = 1` `inacc_bits = 3` |    `3 <= inacc_bits <= total_bits - 1`     |
+|  4  | Two unsigned decimal numbers to be added using accurate adder and to be compared against inaccurate adder for accuracy |              `12`               | `0 <= decimal_number <= 2^(total_bits) -1` |
+|  5  | Type of hardware module to analyze error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`                             |             `HEAA`              |                     -                      |
+|  6  | Analyse Accuracy                                                                                                       |                -                |                     -                      |
