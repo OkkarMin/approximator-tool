@@ -18,7 +18,7 @@ python3 GUIMainToolCode.py
 
 ## Verilog Code Generator
 
-![Verilog Code Generator](_images/verilog_code_generator.png)
+![Verilog Code Generator](_images/gui_tool/verilog_code_generator.png)
 
 ##### Adder Verilog Code Generator Constraints
 
@@ -45,7 +45,7 @@ python3 GUIMainToolCode.py
 
 ## Error Analysis
 
-![Error Analysis](_images/error_analysis.png)
+![Error Analysis](_images/gui_tool/error_analysis.png)
 
 ##### Adder Error Analysis Constraints
 
@@ -69,7 +69,7 @@ python3 GUIMainToolCode.py
 
 ## Accuracy Analysis
 
-![Accuracy Analysis](_images/accuracy_analysis.png)
+![Accuracy Analysis](_images/gui_tool/accuracy_analysis.png)
 
 ##### Adder Accuracy Analysis Constraints
 
