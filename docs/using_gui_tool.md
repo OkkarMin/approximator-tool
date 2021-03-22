@@ -18,9 +18,9 @@ python3 GUIMainToolCode.py
 
 ## Verilog Code Generator
 
-Insert a GIF of using verilog code generator here
-
 ![Verilog Code Generator](_images/verilog_code_generator.png)
+
+##### Adder Verilog Code Generator Constraints
 
 | No. | Description                                                                                                             |        Default Option(s)        |            Constraint(s)            |
 | :-: | ----------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :---------------------------------: |
@@ -31,27 +31,47 @@ Insert a GIF of using verilog code generator here
 |  5  | Choose location in computer to save generated verilog file                                                              |            `Desktop`            |                  -                  |
 |  6  | Generate verilog code or exit                                                                                           |                -                |                  -                  |
 
+##### Multiplier Verilog Code Generator Constraints
+
+| No. | Description                                                                                                                                |     Default Option(s)     |           Constraint(s)           |
+| :-: | ------------------------------------------------------------------------------------------------------------------------------------------ | :-----------------------: | :-------------------------------: |
+|  1  | Multiplicand bits and Multiplier bits                                                                                                      |            `4`            |                                   |
+|  2  | V-cut (only for MxN PAAM01 with V-cut)                                                                                                     |            `3`            | `0 <= v_cut <= multiplicand_bits` |
+|  3  | Type of hardware module to generate, chose one of `[MxN Accurate Multiplier, MxN Accurate Binary Array Multiplier, MxN PAAM01 with V-cut]` | `MxN Accurate Multiplier` |                 -                 |
+|  4  | Choose location in computer to save generated verilog file                                                                                 |         `Desktop`         |                 -                 |
+|  5  | Generate verilog code or exit                                                                                                              |             -             |                 -                 |
+
 !> As of 4 Mar 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](link-to-how-to-edit). We are working to fix it
 
 ## Error Analysis
 
-Insert a GIF of using error analysis here
-
 ![Error Analysis](_images/error_analysis.png)
+
+##### Adder Error Analysis Constraints
 
 | No. | Description                                                                                            |        Default Option(s)        |            Constraint(s)            |
 | :-: | ------------------------------------------------------------------------------------------------------ | :-----------------------------: | :---------------------------------: |
 |  1  | Type of Error Analysis to carry out, choose one of `[Adder Error Analysis, Multiplier Error Analysis]` |     `Adder Error Analysis`      |                  -                  |
 |  2  | Total number of bits for approximate computing module                                                  |               `4`               |       `4 <= total_bits <= 32`       |
 |  3  | Accurate bits and Inaccurate bits selection. Move slider to adjust.                                    | `acc_bits = 1` `inacc_bits = 3` | `3 <= inacc_bits <= total_bits - 1` |
-|  4  | Type of hardware module to analyze error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`             |             `HEAA`              |                  -                  |
+|  4  | Type of hardware module to analyse error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`             |             `HEAA`              |                  -                  |
 |  5  | Analyse Error                                                                                          |                -                |                  -                  |
+
+##### Multiplier Error Analysis Constraints
+
+| No. | Description                                                                 | Default Option(s) |           Constraint(s)           |
+| :-: | --------------------------------------------------------------------------- | :---------------: | :-------------------------------: |
+|  1  | Total Multiplicand bits and Total Multiplier bits                           |        `4`        |                                   |
+|  2  | V-cut                                                                       |        `3`        | `0 <= v_cut <= multiplicand_bits` |
+|  3  | Type of hardware module to generate, chose one of `[MxN PAAM01 with V-cut]` |         -         |                 -                 |
+|  4  | Choose location in computer to save generated verilog file                  |     `Desktop`     |                 -                 |
+|  5  | Analyse Error                                                               |         -         |                 -                 |
 
 ## Accuracy Analysis
 
-Insert a GIF of using accuracy analysis here
-
 ![Accuracy Analysis](_images/accuracy_analysis.png)
+
+##### Adder Accuracy Analysis Constraints
 
 | No. | Description                                                                                                            |        Default Option(s)        |               Constraint(s)                |
 | :-: | ---------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :----------------------------------------: |
@@ -59,5 +79,15 @@ Insert a GIF of using accuracy analysis here
 |  2  | Total number of bits for approximate computing module                                                                  |               `4`               |          `4 <= total_bits <= 32`           |
 |  3  | Accurate bits and Inaccurate bits selection. Move slider to adjust.                                                    | `acc_bits = 1` `inacc_bits = 3` |    `3 <= inacc_bits <= total_bits - 1`     |
 |  4  | Two unsigned decimal numbers to be added using accurate adder and to be compared against inaccurate adder for accuracy |              `12`               | `0 <= decimal_number <= 2^(total_bits) -1` |
-|  5  | Type of hardware module to analyze error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`                             |             `HEAA`              |                     -                      |
+|  5  | Type of hardware module to analyse error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`                             |             `HEAA`              |                     -                      |
 |  6  | Analyse Accuracy                                                                                                       |                -                |                     -                      |
+
+##### Multiplier Accuracy Analysis Constraints
+
+| No. | Description                                                                                                                     |    Default Option(s)    |                        Constraint(s)                         |
+| :-: | ------------------------------------------------------------------------------------------------------------------------------- | :---------------------: | :----------------------------------------------------------: |
+|  1  | Total Multiplicand bits and Total Multiplier bits                                                                               |           `4`           |                                                              |
+|  2  | V-cut                                                                                                                           |           `3`           |              `0 <= v_cut <= multiplicand_bits`               |
+|  3  | Two unsigned decimal numbers to be multiplied using accurate multiplier and compared against MxN PAAM01 with V-cut for accuracy |          `12`           | `0 <= decimal_number <= 2^(multiplicand/multiplier_bits) -1` |
+|  4  | Type of hardware module to analyse accuracy                                                                                     | `MxN PAAM01 with V=cut` |                              -                               |
+|  5  | Analyse Accuracy                                                                                                                |            -            |                              -                               |
