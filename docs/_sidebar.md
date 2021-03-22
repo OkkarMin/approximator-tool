@@ -10,4 +10,3 @@
 
 - Command Line Tool
   - [Using Command Line Tool](/using_cmd_tool.md)
-  - [Command Line Tool Development](/cmd_tool_development.md)
