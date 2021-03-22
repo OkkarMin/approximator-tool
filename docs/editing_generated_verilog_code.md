@@ -14,7 +14,7 @@ modify the <u>underlined</u> code section to look like below
 
 For inaccurate-multipliers we have to modify in two places
 
-### 1
+### 1st modification
 
 [Multiplier verilog code generated using the tool](using_gui_tool.md#verilog-code-generator) will look like below (width and size depends upon chosen options)
 
@@ -24,7 +24,7 @@ modify the <u>underlined</u> code section to look like below
 
 ![Multiplier Verilog Generated Code After](_image/../_images/multi-code-gen-after.png)
 
-### 2
+### 2nd modification
 
 ![Multiplier Verilog Generated Code Before 2](_images/multi-code-gen-before-2.png)
 
