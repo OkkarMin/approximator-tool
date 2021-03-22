@@ -83,3 +83,11 @@ python3 GUIMainToolCode.py
 |  6  | Analyse Accuracy                                                                                                       |                -                |                     -                      |
 
 ##### Multiplier Accuracy Analysis Constraints
+
+| No. | Description                                                                                                                     |    Default Option(s)    |                                             Constraint(s)                                             |
+| :-: | ------------------------------------------------------------------------------------------------------------------------------- | :---------------------: | :---------------------------------------------------------------------------------------------------: |
+|  1  | Total Multiplicand bits and Total Multiplier bits                                                                               |           `4`           |                                                                                                       |
+|  2  | V-cut                                                                                                                           |           `3`           |                                   `0 <= v_cut <= multiplicand_bits`                                   |
+|  3  | Two unsigned decimal numbers to be multiplied using accurate multiplier and compared against MxN PAAM01 with V-cut for accuracy |          `12`           | `0 <= decimal_number <= 2^(multiplicand_bits) -1` and `0 <= decimal_number <= 2^(multiplier_bits) -1` |
+|  4  | Type of hardware module to analyse accuracy                                                                                     | `MxN PAAM01 with V=cut` |                                                   -                                                   |
+|  5  | Analyse Accuracy                                                                                                                |            -            |                                                   -                                                   |
