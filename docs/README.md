@@ -11,6 +11,8 @@ Command Line Tool and GUI Tool that have 3 features:
 - [Accuracy Analzyer](using_gui_tool.md#accuracy-analzyer)
   - Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using two user provided unsigned decimal numbers
 
+?> GUI Tool is an application wrapped ontop of Command Line Tool for easy usage
+
 ## Requirements
 
 !> Be mindful of version numbers, the tools were developed and tested with the versions listed below
