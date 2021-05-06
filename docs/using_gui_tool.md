@@ -18,6 +18,8 @@ python3 GUIMainToolCode.py
 
 ## Verilog Code Generator
 
+Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier based on user chosen options
+
 ![Verilog Code Generator](_images/gui_tool/verilog_code_generator.png)
 
 ##### Adder Verilog Code Generator Constraints
@@ -45,6 +47,8 @@ python3 GUIMainToolCode.py
 
 ## Error Analysis
 
+Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using 1 million monte carlo random sampled unsigned numbers
+
 ![Error Analysis](_images/gui_tool/error_analysis.png)
 
 ##### Adder Error Analysis Constraints
@@ -68,6 +72,8 @@ python3 GUIMainToolCode.py
 |  5  | Analyse Error                                                               |         -         |                 -                 |
 
 ## Accuracy Analysis
+
+Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using two user provided unsigned numbers
 
 ![Accuracy Analysis](_images/gui_tool/accuracy_analysis.png)
 
