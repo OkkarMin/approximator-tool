@@ -2,6 +2,9 @@
 **/__pycache__
 *.pyc
 
+# Ignore .venv
+.venv
+
 # Usual ignore
 **/.DS_Store
 **/.vscode
