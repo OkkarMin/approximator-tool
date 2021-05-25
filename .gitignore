@@ -8,3 +8,4 @@
 # Usual ignore
 **/.DS_Store
 **/.vscode
+.vscode/*
