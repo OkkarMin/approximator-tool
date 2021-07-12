@@ -35,13 +35,13 @@ Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier bas
 
 ### Multiplier Verilog Code Generator Constraints
 
-| No. | Description                                                                                                                                |     Default Option(s)     |                 Constraint(s)                 |
-| :-: | ------------------------------------------------------------------------------------------------------------------------------------------ | :-----------------------: | :-------------------------------------------: |
-|  1  | Multiplicand bits and Multiplier bits                                                                                                      |            `4`            | `multiplicand_bits >= 3, multiplier_bits >=3` |
-|  2  | V-cut (only for MxN PAAM01 with V-cut)                                                                                                     |            `3`            |       `0 <= v_cut <= multiplicand_bits`       |
-|  3  | Type of hardware module to generate, chose one of `[MxN Accurate Multiplier, MxN Accurate Binary Array Multiplier, MxN PAAM01 with V-cut]` | `MxN Accurate Multiplier` |                       -                       |
-|  4  | Choose location in computer to save generated verilog file                                                                                 |         `Desktop`         |                       -                       |
-|  5  | Generate verilog code or exit                                                                                                              |             -             |                       -                       |
+| No. | Description                                                                                                                                |     Default Option(s)     |                   Constraint(s)                   |
+| :-: | ------------------------------------------------------------------------------------------------------------------------------------------ | :-----------------------: | :-----------------------------------------------: |
+|  1  | Multiplicand bits and Multiplier bits                                                                                                      |            `4`            | `multiplicand_bits >= 3`and `multiplier_bits >=3` |
+|  2  | V-cut (only for MxN PAAM01 with V-cut)                                                                                                     |            `3`            |         `0 <= v_cut <= multiplicand_bits`         |
+|  3  | Type of hardware module to generate, chose one of `[MxN Accurate Multiplier, MxN Accurate Binary Array Multiplier, MxN PAAM01 with V-cut]` | `MxN Accurate Multiplier` |                         -                         |
+|  4  | Choose location in computer to save generated verilog file                                                                                 |         `Desktop`         |                         -                         |
+|  5  | Generate verilog code or exit                                                                                                              |             -             |                         -                         |
 
 !> As of 4 Mar 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](/editing_generated_verilog_code.md). We are working to fix it
 
@@ -63,13 +63,13 @@ Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it wi
 
 ### Multiplier Error Analysis Constraints
 
-| No. | Description                                                                 | Default Option(s) |           Constraint(s)           |
-| :-: | --------------------------------------------------------------------------- | :---------------: | :-------------------------------: |
-|  1  | Total Multiplicand bits and Total Multiplier bits                           |        `4`        |                                   |
-|  2  | V-cut                                                                       |        `3`        | `0 <= v_cut <= multiplicand_bits` |
-|  3  | Type of hardware module to generate, chose one of `[MxN PAAM01 with V-cut]` |         -         |                 -                 |
-|  4  | Choose location in computer to save generated verilog file                  |     `Desktop`     |                 -                 |
-|  5  | Analyse Error                                                               |         -         |                 -                 |
+| No. | Description                                                                 | Default Option(s) |                   Constraint(s)                   |
+| :-: | --------------------------------------------------------------------------- | :---------------: | :-----------------------------------------------: |
+|  1  | Total Multiplicand bits and Total Multiplier bits                           |        `4`        | `multiplicand_bits >= 3`and `multiplier_bits >=3` |
+|  2  | V-cut                                                                       |        `3`        |         `0 <= v_cut <= multiplicand_bits`         |
+|  3  | Type of hardware module to generate, chose one of `[MxN PAAM01 with V-cut]` |         -         |                         -                         |
+|  4  | Choose location in computer to save generated verilog file                  |     `Desktop`     |                         -                         |
+|  5  | Analyse Error                                                               |         -         |                         -                         |
 
 ## Accuracy Analysis
 
