@@ -22,7 +22,7 @@ Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier bas
 
 ![Verilog Code Generator](_images/gui_tool/verilog_code_generator.png)
 
-##### Adder Verilog Code Generator Constraints
+### Adder Verilog Code Generator Constraints
 
 | No. | Description                                                                                                             |        Default Option(s)        |            Constraint(s)            |
 | :-: | ----------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :---------------------------------: |
@@ -33,7 +33,7 @@ Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier bas
 |  5  | Choose location in computer to save generated verilog file                                                              |            `Desktop`            |                  -                  |
 |  6  | Generate verilog code or exit                                                                                           |                -                |                  -                  |
 
-##### Multiplier Verilog Code Generator Constraints
+### Multiplier Verilog Code Generator Constraints
 
 | No. | Description                                                                                                                                |     Default Option(s)     |           Constraint(s)           |
 | :-: | ------------------------------------------------------------------------------------------------------------------------------------------ | :-----------------------: | :-------------------------------: |
@@ -51,7 +51,7 @@ Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it wi
 
 ![Error Analysis](_images/gui_tool/error_analysis.png)
 
-##### Adder Error Analysis Constraints
+### Adder Error Analysis Constraints
 
 | No. | Description                                                                                            |        Default Option(s)        |            Constraint(s)            |
 | :-: | ------------------------------------------------------------------------------------------------------ | :-----------------------------: | :---------------------------------: |
@@ -61,7 +61,7 @@ Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it wi
 |  4  | Type of hardware module to analyse error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`             |             `HEAA`              |                  -                  |
 |  5  | Analyse Error                                                                                          |                -                |                  -                  |
 
-##### Multiplier Error Analysis Constraints
+### Multiplier Error Analysis Constraints
 
 | No. | Description                                                                 | Default Option(s) |           Constraint(s)           |
 | :-: | --------------------------------------------------------------------------- | :---------------: | :-------------------------------: |
@@ -77,7 +77,7 @@ Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with 
 
 ![Accuracy Analysis](_images/gui_tool/accuracy_analysis.png)
 
-##### Adder Accuracy Analysis Constraints
+### Adder Accuracy Analysis Constraints
 
 | No. | Description                                                                                                            |        Default Option(s)        |               Constraint(s)                |
 | :-: | ---------------------------------------------------------------------------------------------------------------------- | :-----------------------------: | :----------------------------------------: |
@@ -88,7 +88,7 @@ Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with 
 |  5  | Type of hardware module to analyse error, chose one of `[HEAA, HOERAA, HOAANED, M-HERLOA]`                             |             `HEAA`              |                     -                      |
 |  6  | Analyse Accuracy                                                                                                       |                -                |                     -                      |
 
-##### Multiplier Accuracy Analysis Constraints
+### Multiplier Accuracy Analysis Constraints
 
 | No. | Description                                                                                                                     |    Default Option(s)    |                                             Constraint(s)                                             |
 | :-: | ------------------------------------------------------------------------------------------------------------------------------- | :---------------------: | :---------------------------------------------------------------------------------------------------: |
