@@ -20,6 +20,8 @@ python3 GUIMainToolCode.py
 
 Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier based on user chosen options
 
+!> As of 13 Jul 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](/editing_generated_verilog_code.md). We are working to fix it
+
 ![Verilog Code Generator](_images/gui_tool/verilog_code_generator.png)
 
 ### Adder Verilog Code Generator Constraints
@@ -42,8 +44,6 @@ Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier bas
 |  3  | Type of hardware module to generate, chose one of `[MxN Accurate Multiplier, MxN Accurate Binary Array Multiplier, MxN PAAM01 with V-cut]` | `MxN Accurate Multiplier` |                         -                         |
 |  4  | Choose location in computer to save generated verilog file                                                                                 |         `Desktop`         |                         -                         |
 |  5  | Generate verilog code or exit                                                                                                              |             -             |                         -                         |
-
-!> As of 4 Mar 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](/editing_generated_verilog_code.md). We are working to fix it
 
 ## Error Analysis
 
