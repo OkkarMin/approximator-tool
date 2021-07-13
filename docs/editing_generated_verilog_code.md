@@ -30,6 +30,9 @@ module hoaaned_32b10inacc
   assign sum[5] = 1;    // to change
   assign sum[6] = 1;    // to change
   assign sum[7] = 1;    // to change
+  .
+  .
+  .
 ```
 
 you would need to modify the code accordingly to look like the one below.
@@ -65,6 +68,9 @@ module hoaaned_32b10inacc
   TIEL_HVT gate7(net[6]);       // changed
   TIEL_HVT gate8(net[7]);       // changed
   assign sum[7:0] = net[7:0];   // changed
+  .
+  .
+  .
 ```
 
 <!-- ![Adder Verilog Generated Code After](_image/../_images/adder-code-gen-after.png) -->
