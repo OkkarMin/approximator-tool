@@ -73,8 +73,6 @@ module hoaaned_32b10inacc
   .
 ```
 
-<!-- ![Adder Verilog Generated Code After](_image/../_images/adder-code-gen-after.png) -->
-
 ## Inaccurate-multiplier Generated Verilog Code Manual Change
 
 [Multiplier verilog code generated using the tool](using_gui_tool.md#verilog-code-generator) will look like below (width and size depends upon chosen options)
