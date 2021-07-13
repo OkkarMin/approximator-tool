@@ -123,10 +123,10 @@ module paam_01_V_7_8x6
   assign p[1] = 1;      // to change
   assign p[2] = 1;      // to change
   assign p[3] = 1;      // to change
-  assign p[4] = 1       // to change
-  assign p[5] = 1       // to change
-  assign p[6] = 1       // to change
-  assign p[7] = 1       // to change
+  assign p[4] = 1;      // to change
+  assign p[5] = 1;      // to change
+  assign p[6] = 1;      // to change
+  assign p[7] = 1;      // to change
   .
   .
   .
@@ -142,8 +142,8 @@ module paam_01_V_7_8x6
   p                     // changed
 );
   input [7:0] a;        // changed
-  input [5:0] b         // changed
-  output [13:0] p       // changed
+  input [5:0] b;        // changed
+  output [13:0] p;      // changed
   wire w71;
   wire w62;
   wire w72;
@@ -191,7 +191,7 @@ module paam_01_V_7_8x6
   TIEL_HVT gate6(net[5]);   // changed
   TIEL_HVT gate7(net[6]);   // changed
   TIEL_HVT gate8(net[7]);   // changed
-  assign p[7:0] = net[7:0]  // changed
+  assign p[7:0] = net[7:0]; // changed
   .
   .
   .
