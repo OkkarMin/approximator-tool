@@ -20,7 +20,7 @@ python3 GUIMainToolCode.py
 
 Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier based on user chosen options
 
-!> As of 13 Jul 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](/editing_generated_verilog_code.md). This edit in only **required for ASIC**. We are working to fix it
+!> As of 13 Jul 2021 (GMT+8), you will need to modify a tiny portion of generated verilog code. [Click here to find out more](/editing_generated_verilog_code.md). This edit in only **required for ASIC based designs only**. We are working to fix it
 
 ![Verilog Code Generator](_images/gui_tool/verilog_code_generator.png)
 
