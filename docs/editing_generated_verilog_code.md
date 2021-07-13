@@ -24,14 +24,14 @@ module hoaaned_32b10inacc
   wire cout20;
   wire cout24;
   wire cout28;
-  assign sum[0] = 1;
-  assign sum[1] = 1;
-  assign sum[2] = 1;
-  assign sum[3] = 1;
-  assign sum[4] = 1;
-  assign sum[5] = 1;
-  assign sum[6] = 1;
-  assign sum[7] = 1;
+  assign sum[0] = 1; // to change
+  assign sum[1] = 1; // to change
+  assign sum[2] = 1; // to change
+  assign sum[3] = 1; // to change
+  assign sum[4] = 1; // to change
+  assign sum[5] = 1; // to change
+  assign sum[6] = 1; // to change
+  assign sum[7] = 1; // to change
 ```
 
 you would need to modify the code accordingly to look like the one below
@@ -54,23 +54,23 @@ module hoaaned_32b10inacc
   wire cout20;
   wire cout24;
   wire cout28;
-  wire net[7:0];
-  TIEL_HVT gate1(net[0]);
-  TIEL_HVT gate2(net[1]);
-  TIEL_HVT gate3(net[2]);
-  TIEL_HVT gate4(net[3]);
-  TIEL_HVT gate5(net[4]);
-  TIEL_HVT gate6(net[5]);
-  TIEL_HVT gate7(net[6]);
-  TIEL_HVT gate8(net[7]);
-  assign sum[7:0] = net[7:0];
+  wire net[7:0];            // changed
+  TIEL_HVT gate1(net[0]);   // changed
+  TIEL_HVT gate2(net[1]);   // changed
+  TIEL_HVT gate3(net[2]);   // changed
+  TIEL_HVT gate4(net[3]);   // changed
+  TIEL_HVT gate5(net[4]);   // changed
+  TIEL_HVT gate6(net[5]);   // changed
+  TIEL_HVT gate7(net[6]);   // changed
+  TIEL_HVT gate8(net[7]);   // changed
+  assign sum[7:0] = net[7:0];// changed
 ```
 
 <!-- ![Adder Verilog Generated Code After](_image/../_images/adder-code-gen-after.png) -->
 
 ## Inaccurate-multiplier Generated Verilog Code Manual Change
 
-For inaccurate-multipliers we have to modify in two places
+For inaccurate-multipliers we have to modify in **two** places
 
 ### 1st modification
 
