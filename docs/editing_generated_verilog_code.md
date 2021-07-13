@@ -123,10 +123,10 @@ module paam_01_V_7_8x6
   assign p[1] = 1;      // to change
   assign p[2] = 1;      // to change
   assign p[3] = 1;      // to change
-  assign p[4] = 1       // to change;
-  assign p[5] = 1       // to change;
-  assign p[6] = 1       // to change;
-  assign p[7] = 1       // to change;
+  assign p[4] = 1       // to change
+  assign p[5] = 1       // to change
+  assign p[6] = 1       // to change
+  assign p[7] = 1       // to change
   .
   .
   .
