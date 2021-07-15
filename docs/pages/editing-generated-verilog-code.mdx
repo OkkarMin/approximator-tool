@@ -1,8 +1,16 @@
+import Callout from "nextra-theme-docs/callout";
+
 # Editing Generated Verilog Code
 
-## Inaccurate-adder Generated Verilog Code Manual Change
+<Callout emoji="⚠️">
+  As of 13 Jul 2021 (GMT+8), you will need to modify a tiny portion of generated
+  verilog code. This edit in only **required for ASIC based designs only**. We
+  are working to fix it
+</Callout>
 
-[Adder verilog code generated using the tool](using_gui_tool.md#verilog-code-generator) will look like below (width and size depends upon chosen options)
+## Adder Generated Verilog Code Manual Change
+
+[Adder verilog code generated using the tool](/gui-tool/verilog-code-generator#adder-verilog-code-generator) will look like below (width and size depends upon chosen options)
 
 ```verilog
 module hoaaned_32b10inacc
@@ -73,9 +81,9 @@ module hoaaned_32b10inacc
   .
 ```
 
-## Inaccurate-multiplier Generated Verilog Code Manual Change
+## Multiplier Generated Verilog Code Manual Change
 
-[Multiplier verilog code generated using the tool](using_gui_tool.md#verilog-code-generator) will look like below (width and size depends upon chosen options)
+[Multiplier verilog code generated using the tool](/gui-tool/verilog-code-generator#multiplier-verilog-code-generator-asic-verilog-multiplier) will look like below (width and size depends upon chosen options)
 
 ```verilog
 module paam_01_V_7_8x6

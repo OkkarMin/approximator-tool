@@ -1,0 +1,49 @@
+import Callout from "nextra-theme-docs/callout";
+
+# What it is
+
+GUI and Command Line Tool that have 3 features:
+
+1. [Verilog Code Generator](/gui-tool/verilog-code-generator)
+
+Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier based on user chosen options
+
+2. [Error Analyzers](/gui-tool/error-analysis)
+
+Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using 1 million monte carlo random sampled unsigned numbers
+
+3. [Accuracy Analzyer](/gui-tool/accuracy-analysis)
+
+Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using two user provided unsigned numbers
+
+## Requirements
+
+<Callout emoji="💡">
+Be mindful of version numbers, the tools were developed and tested with the versions listed below
+
+It is highly recommended to install requirements and run the tools in a [virtual enviornment](https://docs.python.org/3/tutorial/venv.html)
+
+</Callout >
+
+### GUI Tool Requirements
+
+- [Python 3.7.3](https://www.python.org/downloads/release/python-373)
+- [Pyverilog 1.3.0](https://github.com/PyHDI/Pyverilog)
+- [Veriloggen 1.9.0](https://github.com/PyHDI/veriloggen)
+- [NumPy 1.19.3](https://numpy.org)
+- [PySimpleGUI 4.33.0](https://pysimplegui.readthedocs.io/en/latest)
+
+```bash
+pip install pyverilog==1.3.0 veriloggen==1.9.0 numpy==1.19.3 PySimpleGUI==4.33.0
+```
+
+### Command Line Tool Requirements
+
+- [Python 3.7.3](https://www.python.org/downloads/release/python-373)
+- [Pyverilog 1.3.0](https://github.com/PyHDI/Pyverilog)
+- [Veriloggen 1.9.0](https://github.com/PyHDI/veriloggen)
+- [NumPy 1.19.3](https://numpy.org)
+
+```bash
+pip install pyverilog==1.3.0 veriloggen==1.9.0 numpy==1.19.3
+```

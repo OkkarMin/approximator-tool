@@ -1,0 +1,6 @@
+{
+  "index": "Introduction",
+  "gui-tool": "GUI Tool",
+  "editing-generated-verilog-code": "Editing Generated Code (ASIC Designs only)",
+  "cmd-tool": "Command Line Tool"
+}
