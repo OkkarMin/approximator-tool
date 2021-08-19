@@ -12,7 +12,7 @@ def PAAM01_VCut(N1, N2, V_val):
     PAAM01_VCut_estimate_MAE = 0.0
     PAAM01_VCut_estimate_RMSE = 0.0
 
-    if (N1 <= 10 and N2 <= 10):
+    if (N1 <= 8 and N2 <= 8):
         print("\n Performing Accurate Error Anaylsis...\n")
 
         for num1 in range(2**N1):
@@ -45,7 +45,7 @@ def PAAM01_VCut(N1, N2, V_val):
         print()
 
     else:
-        print("\n Since atleast one of the two input is >10 bits, \n \
+        print("\n Since atleast one of the two input is >8 bits, \n \
         Approximate Error Anaylsis is performed\n \
         using 100000 random input combinations...\n")
         num_rand_values = 100000
