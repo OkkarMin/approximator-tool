@@ -729,7 +729,7 @@ def accurate_MxN_binary_array_multiplier(M, N):  # Accurate MxN Binary Array Mul
             if i == 0 and j == 0:
                 continue
             else:
-                exec("w%d%d = Mult.Wire('w%d%d');" % (j, i, j, i))
+                exec("w%d_%d = Mult.Wire('w%d_%d');" % (j, i, j, i))
 
     ##    w10=Mult.Wire('w10');
     ##    w20=Mult.Wire('w20');
@@ -805,12 +805,12 @@ def accurate_MxN_binary_array_multiplier(M, N):  # Accurate MxN Binary Array Mul
     for i in range(N - 1):
         for j in range(M - 1):
             if j != 0:
-                exec("s_%d%d=Mult.Wire('s_%d%d');" % ((i + 1), j, (i + 1), j))
+                exec("s_%d_%d=Mult.Wire('s_%d_%d');" % ((i + 1), j, (i + 1), j))
 
-            exec("c_%d%d=Mult.Wire('c_%d%d');" % ((i + 1), j, (i + 1), j))
+            exec("c_%d_%d=Mult.Wire('c_%d_%d');" % ((i + 1), j, (i + 1), j))
 
     for j in range(M - 2):
-        exec("c_%d%d=Mult.Wire('c_%d%d');" % (N, j, N, j))
+        exec("c_%d_%d=Mult.Wire('c_%d_%d');" % (N, j, N, j))
 
     ##    a1=Mult.Wire('a1');
     ##    a2=Mult.Wire('a2');
@@ -920,10 +920,10 @@ def accurate_MxN_binary_array_multiplier(M, N):  # Accurate MxN Binary Array Mul
     for i in range(M):
         for j in range(N):
             if i == 0 and j == 0:
-                Mult.Instance(AndModule, "and_00", ports=[res[0], a[0], b[0]])
+                Mult.Instance(AndModule, "and_0_0", ports=[res[0], a[0], b[0]])
             else:
                 exec(
-                    "Mult.Instance(AndModule,'and_%d%d',ports=[w%d%d,a[%d],b[%d]]);"
+                    "Mult.Instance(AndModule,'and_%d_%d',ports=[w%d_%d,a[%d],b[%d]]);"
                     % (i, j, i, j, i, j)
                 )
 
@@ -1005,44 +1005,44 @@ def accurate_MxN_binary_array_multiplier(M, N):  # Accurate MxN Binary Array Mul
             if j == 1:
                 if i == 1:
                     exec(
-                        "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d0,w%d1,res[1],c_1%d]);"
+                        "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d_0,w%d_1,res[1],c_1_%d]);"
                         % (i, i, i - 1, i - 1)
                     )
                 else:
                     exec(
-                        "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d0,w%d1,s_1%d,c_1%d]);"
+                        "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d_0,w%d_1,s_1_%d,c_1_%d]);"
                         % (i, i, i - 1, i - 1, i - 1)
                     )
             elif j != N:
                 if i == 1:
                     exec(
-                        "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,s_%d%d,w%d%d,res[%d],c_%d%d]);"
+                        "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,s_%d_%d,w%d_%d,res[%d],c_%d_%d]);"
                         % (i, j, j - 1, i - 1, j - 1, i, i - 1, j, j, j, i - 1)
                     )
                 elif i != (M - 1):
                     exec(
-                        "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,s_%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                        "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,s_%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                         % (i, j, j - 1, i - 1, j - 1, i, i - 1, j, j, i - 1, j, i - 1)
                     )
                 else:
                     exec(
-                        "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,w%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                        "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,w%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                         % (i, j, j - 1, i - 1, i, j - 1, i - 1, j, j, i - 1, j, i - 1)
                     )
             else:
                 if i == 1:
                     exec(
-                        "Mult.Instance(HalfAdderModule,'hadd',ports=[c_%d%d,s_%d%d,res[%d],c_%d%d]);"
+                        "Mult.Instance(HalfAdderModule,'hadd',ports=[c_%d_%d,s_%d_%d,res[%d],c_%d_%d]);"
                         % (j - 1, i - 1, j - 1, i, j + i - 1, j, i - 1)
                     )
                 elif i != (M - 1):
                     exec(
-                        "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,s_%d%d,c_%d%d,res[%d],c_%d%d]);"
+                        "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d_%d,s_%d_%d,c_%d_%d,res[%d],c_%d_%d]);"
                         % (i - 1, j - 1, i - 1, j - 1, i, j, i - 2, j + i - 1, j, i - 1)
                     )
                 else:
                     exec(
-                        "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,w%d%d,c_%d%d,res[%d],res[%d]]);"
+                        "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d_%d,w%d_%d,c_%d_%d,res[%d],res[%d]]);"
                         % (i - 1, j - 1, i - 1, i, j - 1, j, i - 2, j + i - 1, j + i)
                     )
 
@@ -1165,7 +1165,7 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
     for i in range(N):
         for j in range(M):
             if i + j > V_cut:
-                exec("w%d%d = Mult.Wire('w%d%d');" % (j, i, j, i))
+                exec("w%d_%d = Mult.Wire('w%d_%d');" % (j, i, j, i))
 
     ##    w10=Mult.Wire('w10');
     ##    w20=Mult.Wire('w20');
@@ -1242,13 +1242,13 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
         for j in range(M - 1):
             if (i + 1 + j) > V_cut:
                 if j != 0:
-                    exec("s_%d%d=Mult.Wire('s_%d%d');" % ((i + 1), j, (i + 1), j))
+                    exec("s_%d_%d=Mult.Wire('s_%d_%d');" % ((i + 1), j, (i + 1), j))
 
-                exec("c_%d%d=Mult.Wire('c_%d%d');" % ((i + 1), j, (i + 1), j))
+                exec("c_%d_%d=Mult.Wire('c_%d_%d');" % ((i + 1), j, (i + 1), j))
 
     for j in range(M - 2):
         if (N + j) > V_cut + 1:  # Final layer of Multiplier reacts differently to V_cut
-            exec("c_%d%d=Mult.Wire('c_%d%d');" % (N, j, N, j))
+            exec("c_%d_%d=Mult.Wire('c_%d_%d');" % (N, j, N, j))
 
     ##    a1=Mult.Wire('a1');
     ##    a2=Mult.Wire('a2');
@@ -1363,7 +1363,7 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
         for j in range(N):
             if (i + j) > V_cut:
                 exec(
-                    "Mult.Instance(AndModule,'and_%d%d',ports=[w%d%d,a[%d],b[%d]]);"
+                    "Mult.Instance(AndModule,'and_%d_%d',ports=[w%d_%d,a[%d],b[%d]]);"
                     % (i, j, i, j, i, j)
                 )
 
@@ -1446,40 +1446,40 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
                 if j == 1:
                     if i == 1:
                         exec(
-                            "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d0,w%d1,res[1],c_1%d]);"
+                            "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d_0,w%d_1,res[1],c_1_%d]);"
                             % (i, i, i - 1, i - 1)
                         )
                     else:
                         exec(
-                            "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d0,w%d1,s_1%d,c_1%d]);"
+                            "Mult.Instance(HalfAdderModule,'ha%d',ports=[w%d_0,w%d_1,s_1_%d,c_1_%d]);"
                             % (i, i, i - 1, i - 1, i - 1)
                         )
                 elif j != N:
                     if (i + j - 2) == V_cut:
                         if i == 1:
                             exec(
-                                "Mult.Instance(HalfAdderModule,'ha%d%d',ports=[s_%d%d,w%d%d,res[%d],c_%d%d]);"
+                                "Mult.Instance(HalfAdderModule,'ha%d_%d',ports=[s_%d_%d,w%d_%d,res[%d],c_%d_%d]);"
                                 % (i, j, j - 1, i, i - 1, j, j, j, i - 1)
                             )
                         elif i != (M - 1):
                             exec(
-                                "Mult.Instance(HalfAdderModule,'ha%d%d',ports=[s_%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                                "Mult.Instance(HalfAdderModule,'ha%d_%d',ports=[s_%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                                 % (i, j, j - 1, i, i - 1, j, j, i - 1, j, i - 1)
                             )
                         else:
                             exec(
-                                "Mult.Instance(HalfAdderModule,'ha%d%d',ports=[w%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                                "Mult.Instance(HalfAdderModule,'ha%d_%d',ports=[w%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                                 % (i, j, i, j - 1, i - 1, j, j, i - 1, j, i - 1)
                             )
                     else:
                         if i == 1:
                             exec(
-                                "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,s_%d%d,w%d%d,res[%d],c_%d%d]);"
+                                "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,s_%d_%d,w%d_%d,res[%d],c_%d_%d]);"
                                 % (i, j, j - 1, i - 1, j - 1, i, i - 1, j, j, j, i - 1)
                             )
                         elif i != (M - 1):
                             exec(
-                                "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,s_%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                                "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,s_%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                                 % (
                                     i,
                                     j,
@@ -1497,7 +1497,7 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
                             )
                         else:
                             exec(
-                                "Mult.Instance(FullAdderModule,'fa%d%d',ports=[c_%d%d,w%d%d,w%d%d,s_%d%d,c_%d%d]);"
+                                "Mult.Instance(FullAdderModule,'fa%d_%d',ports=[c_%d_%d,w%d_%d,w%d_%d,s_%d_%d,c_%d_%d]);"
                                 % (
                                     i,
                                     j,
@@ -1517,36 +1517,36 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
                     if (i + j - 2) == V_cut:
                         V_cut_flag = 1
                         if i == 1:
-                            exec("res[%d].assign(s_%d%d);" % (j + i - 1, j - 1, i))
+                            exec("res[%d].assign(s_%d_%d);" % (j + i - 1, j - 1, i))
                             # exec("Mult.Instance(HalfAdderModule,'hadd',ports=[c_%d%d,s_%d%d,res[%d],c_%d%d]);" %(j-1,i-1,j-1,i,j+i-1,j,i-1));
                         elif i != (M - 1):
-                            exec("res[%d].assign(s_%d%d);" % (j + i - 1, j - 1, i))
+                            exec("res[%d].assign(s_%d_%d);" % (j + i - 1, j - 1, i))
                             # exec("Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,s_%d%d,c_%d%d,res[%d],c_%d%d]);" %(i-1,j-1,i-1,j-1,i,j,i-2,j+i-1,j,i-1));
                         else:
-                            exec("res[%d].assign(w%d%d);" % (j + i - 1, i, j - 1))
+                            exec("res[%d].assign(w%d_%d);" % (j + i - 1, i, j - 1))
                             exec("res[%d].assign(0);" % (j + i))
                             # exec("Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,w%d%d,c_%d%d,res[%d],res[%d]]);" %(i-1,j-1,i-1,i,j-1,j,i-2,j+i-1,j+i));
                     elif V_cut_flag == 1:
                         V_cut_flag = 0
                         if i != (M - 1):
                             exec(
-                                "Mult.Instance(HalfAdderModule,'hadd%d',ports=[c_%d%d,s_%d%d,res[%d],c_%d%d]);"
+                                "Mult.Instance(HalfAdderModule,'hadd%d',ports=[c_%d_%d,s_%d_%d,res[%d],c_%d_%d]);"
                                 % (i - 1, j - 1, i - 1, j - 1, i, j + i - 1, j, i - 1)
                             )
                         else:
                             exec(
-                                "Mult.Instance(HalfAdderModule,'hadd%d',ports=[c_%d%d,w%d%d,res[%d],res[%d]]);"
+                                "Mult.Instance(HalfAdderModule,'hadd%d',ports=[c_%d_%d,w%d_%d,res[%d],res[%d]]);"
                                 % (i - 1, j - 1, i - 1, i, j - 1, j + i - 1, j + i)
                             )
                     else:
                         if i == 1:
                             exec(
-                                "Mult.Instance(HalfAdderModule,'hadd',ports=[c_%d%d,s_%d%d,res[%d],c_%d%d]);"
+                                "Mult.Instance(HalfAdderModule,'hadd',ports=[c_%d_%d,s_%d_%d,res[%d],c_%d_%d]);"
                                 % (j - 1, i - 1, j - 1, i, j + i - 1, j, i - 1)
                             )
                         elif i != (M - 1):
                             exec(
-                                "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,s_%d%d,c_%d%d,res[%d],c_%d%d]);"
+                                "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d_%d,s_%d_%d,c_%d_%d,res[%d],c_%d_%d]);"
                                 % (
                                     i - 1,
                                     j - 1,
@@ -1562,7 +1562,7 @@ def PAAM01_V_cut_MxN_binary_array_multiplier(
                             )
                         else:
                             exec(
-                                "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d%d,w%d%d,c_%d%d,res[%d],res[%d]]);"
+                                "Mult.Instance(FullAdderModule,'fadd%d',ports=[c_%d_%d,w%d_%d,c_%d_%d,res[%d],res[%d]]);"
                                 % (
                                     i - 1,
                                     j - 1,
