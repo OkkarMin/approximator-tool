@@ -72,8 +72,8 @@ def VerilogCodeGeneratorTabLogic(window, event, values):
         else:
             window["acc_inacc_bits_slider_layout"].update(visible=True)
 
-    # V-cut input should only show up for 'MxN PAAM01 with V-cut'
-    if type_of_hardware_module == "MxN PAAM01 with V-cut":
+    # V-cut input should only show up for 'MxN AAM01 with V-cut'
+    if type_of_hardware_module == "MxN AAM01 with V-cut":
         window["v_cut_text"].update(visible=True)
         window["v_cut"].update(visible=True)
     else:

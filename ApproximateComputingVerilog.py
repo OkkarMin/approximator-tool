@@ -303,7 +303,7 @@ def ASIC_Based_VerilogMultiplier():  # ASIC Based Verilog Multiplier
         print("Types of Approximate Multiplier-")
         print("1. MxN Accurate Multiplier")
         print("2. MxN Accurate Binary Array Multiplier")
-        print("3. MxN PAAM01 with V-cut")
+        print("3. MxN AAM01 with V-cut")
         total_num_multiplier_types = 3
         ##        print('1. 8x6 Accurate Multiplier');
         ##        print('2. 8x6 Accurate Binary Array Multiplier');

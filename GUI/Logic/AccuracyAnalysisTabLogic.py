@@ -50,12 +50,18 @@ def AccuracyAnalysisTabLogic(window, event, values):
         window["ASIC_FPGA_Adder_Bits_Accuracy_Analysis_Selection_layout"].update(
             visible=True
         )
-        window["acc_inacc_bits_slider_accuracy_analysis_layout"].update(visible=True)
+        window["acc_inacc_bits_slider_accuracy_analysis_layout"].update(
+            visible=True,
+        )
         window["ASIC_Multiplier_Bits_Selection_Accuracy_Analysis_layout"].update(
             visible=False
         )
-        window["ASIC_Adder_Accuracy_Analysis_Layout"].update(visible=True)
-        window["ASIC_Multiplier_Accuracy_Analysis_Layout"].update(visible=False)
+        window["ASIC_Adder_Accuracy_Analysis_Layout"].update(
+            visible=True,
+        )
+        window["ASIC_Multiplier_Accuracy_Analysis_Layout"].update(
+            visible=False,
+        )
         window["ASIC_FPGA_Adder_Actual_Number_Accuracy_Analysis_layout"].update(
             visible=True
         )
@@ -94,7 +100,7 @@ def AccuracyAnalysisTabLogic(window, event, values):
                 "ASIC_Adder_Accuracy_Analysis_Hardware_Type"
             ][0]
         else:
-            type_of_accuracy_analysis_hardware = "MxN PAAM01 with V-cut"
+            type_of_accuracy_analysis_hardware = "MxN AAM01 with V-cut"
         user_chosen_options[
             "type_of_accuracy_analysis_hardware"
         ] = type_of_accuracy_analysis_hardware

@@ -68,7 +68,7 @@ def ErrorAnalysisTabLogic(window, event, values):
                 "ASIC_Adder_Error_Analysis_Hardware_Type"
             ][0]
         else:
-            type_of_error_analysis_hardware = "MxN PAAM01 with V-cut"
+            type_of_error_analysis_hardware = "MxN AAM01 with V-cut"
         user_chosen_options[
             "type_of_error_analysis_hardware"
         ] = type_of_error_analysis_hardware
@@ -93,7 +93,7 @@ def ErrorAnalysisTabLogic(window, event, values):
             getattr(AdderErrorAnalyzer, type_of_error_analysis_hardware)(
                 total_bits, inacc_bits
             )
-        else:  # MxN PAAM01 with V-cut
-            MultiplierErrorAnalyzer.PAAM01_VCut(
+        else:  # MxN AAM01 with V-cut
+            MultiplierErrorAnalyzer.AAM01_VCut(
                 multiplicand_bits, multiplier_bits, v_cut
             )

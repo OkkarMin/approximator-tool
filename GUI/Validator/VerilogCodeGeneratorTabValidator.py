@@ -56,7 +56,7 @@ class VerilogCodeGeneratorTabValidator:
             )
 
         # V-cut should be > 0 but <= multiplicand_bits
-        if type_of_hardware_module == "MxN PAAM01 with V-cut" and not (
+        if type_of_hardware_module == "MxN AAM01 with V-cut" and not (
             0 < v_cut <= multiplicand_bits
         ):
             is_valid = False

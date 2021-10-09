@@ -166,7 +166,7 @@ def ASIC_Verilog_Multiplier_layout():
                 values=(
                     "MxN Accurate Multiplier",
                     "MxN Accurate Binary Array Multiplier",
-                    "MxN PAAM01 with V-cut",
+                    "MxN AAM01 with V-cut",
                 ),
                 default_values=("MxN Accurate Multiplier"),
                 size=(30, 3),

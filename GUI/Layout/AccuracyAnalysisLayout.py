@@ -199,7 +199,7 @@ def ASIC_Multiplier_Error_Analysis_layout():
     return [
         [
             sg.R(
-                "MxN PAAM01 with V-cut",
+                "MxN AAM01 with V-cut",
                 "_",
                 default=True,
                 key="ASIC_Multiplier_Accuracy_Analysis_Hardware_Type",
