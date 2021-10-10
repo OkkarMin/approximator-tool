@@ -49,7 +49,7 @@ def print_analysis(
     inaccurate_multiplier_accuracy,
 ):
     print("\nAccurate Multiplier Product:\t", accurate_multiplier_product, "\n")
-    print("\nPAAM01-Vcut Multiplier Product:\t", inaccurate_multiplier_product, "\n")
+    print("\nAAM01-Vcut Multiplier Product:\t", inaccurate_multiplier_product, "\n")
     print(
-        "\nPAAM01-Vcut Multiplier Accuracy %:\t", inaccurate_multiplier_accuracy, "\n"
+        "\nAAM01-Vcut Multiplier Accuracy %:\t", inaccurate_multiplier_accuracy, "\n"
     )
