@@ -27,51 +27,31 @@ class AccuracyAnalysisTabValidator:
                 is_valid = False
                 error_message = "Total bits should be >= 4 for Inaccurate Adders"
 
-            # Both unsigned numbers cannot be 0
-            if adder_first_unsigned_number == adder_second_unsigned_number == 0:
-                is_valid = False
-                error_message = "Both unsigned numbers cannot be 0"
-
             # Unsigned first and second number should have >= 1 but <= 2^total_bits - 1
-            if not 0 <= adder_first_unsigned_number <= (2 ** total_bits) - 1:
+            elif not 0 <= adder_first_unsigned_number <= (2 ** total_bits) - 1:
                 is_valid = False
                 error_message = (
                     "Unsigned number should be >= 0 but <= (2^Total bits) - 1"
                 )
 
-            if not 0 <= adder_second_unsigned_number <= (2 ** total_bits) - 1:
+            elif not 0 <= adder_second_unsigned_number <= (2 ** total_bits) - 1:
                 is_valid = False
                 error_message = (
                     "Unsigned number should be >= 0 but <= (2^Total bits) - 1"
                 )
 
             # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
-            if not (3 <= inacc_bits <= total_bits - 1):
+            elif not (3 <= inacc_bits <= total_bits - 1):
                 is_valid = False
                 error_message = "Inaccurate bits should be >= 3 but <= Total bits-1"
 
+            # Both unsigned numbers cannot be 0
+            elif adder_first_unsigned_number == adder_second_unsigned_number == 0:
+                is_valid = False
+                error_message = "Both unsigned numbers cannot be 0"
+
+
         if type_of_accuracy_analysis == "Multiplier_Accuracy_Analysis":
-            # V-cut should be > 0 but <= multiplicand_bits
-            if not (0 < v_cut <= multiplicand_bits):
-                is_valid = False
-                error_message = "V-cut should be > 0 but <= Total Multiplicand bits"
-
-            # Unsigned first and second number should have >= 1 but <= 2^total_bits - 1
-            if not (
-                1 <= multiplier_first_unsigned_number <= (2 ** multiplicand_bits) - 1
-            ):
-                is_valid = False
-                error_message = (
-                    "Unsigned number should be >= 1 but <= (2^Multiplicand bits) - 1"
-                )
-
-            if not (
-                1 <= multiplier_second_unsigned_number <= (2 ** multiplier_bits) - 1
-            ):
-                is_valid = False
-                error_message = (
-                    "Unsigned number should be >= 1 but <= (2^Multiplier bits) - 1"
-                )
 
             # Total multiplicand bits and multiplier bits should be >=3
             if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
@@ -79,5 +59,28 @@ class AccuracyAnalysisTabValidator:
                 error_message = (
                     "Total Multiplicand bits and Total Multiplier bits should be >= 3"
                 )
+
+            # V-cut should be > 0 but <= (multiplicand_bits + multiplier_bits - 3)
+            elif not (0 < v_cut <= (multiplicand_bits + multiplier_bits - 3)):
+                is_valid = False
+                error_message = "V-cut should be > 0 but <= (Total Multiplicand bits + Total Multiplier bits -3)"
+
+            # Unsigned first and second number should have >= 1 but <= 2^total_bits - 1
+            elif not (
+                1 <= multiplier_first_unsigned_number <= (2 ** multiplicand_bits) - 1
+            ):
+                is_valid = False
+                error_message = (
+                    "Unsigned number should be >= 1 but <= (2^Multiplicand bits) - 1"
+                )
+
+            elif not (
+                1 <= multiplier_second_unsigned_number <= (2 ** multiplier_bits) - 1
+            ):
+                is_valid = False
+                error_message = (
+                    "Unsigned number should be >= 1 but <= (2^Multiplier bits) - 1"
+                )
+
 
         return is_valid, error_message

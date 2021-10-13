@@ -39,27 +39,27 @@ class VerilogCodeGeneratorTabValidator:
             error_message = "Total bits should be >= 1 for Accurate Adders"
 
         # Inaccurate Adders should have total_bits >= 4
-        if inaccurate_adder and not total_bits >= 4:
+        elif inaccurate_adder and not total_bits >= 4:
             is_valid = False
             error_message = "Total bits should be >= 4 for Inaccurate Adders"
 
         # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
-        if inaccurate_adder and not (3 <= inacc_bits <= total_bits - 1):
+        elif inaccurate_adder and not (3 <= inacc_bits <= total_bits - 1):
             is_valid = False
             error_message = "Inaccurate bits should be >= 3 but <= Total bits-1"
 
         # Total multiplicand bits and multiplier bits should be >=3
-        if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
+        elif not (multiplicand_bits >= 3 and multiplier_bits >= 3):
             is_valid = False
             error_message = (
                 "Total Multiplicand bits and Total Multiplier bits should be >= 3"
             )
 
         # V-cut should be > 0 but <= multiplicand_bits
-        if type_of_hardware_module == "MxN AAM01 with V-cut" and not (
-            0 < v_cut <= multiplicand_bits
+        elif type_of_hardware_module == "MxN AAM01 with V-cut" and not (
+            0 < v_cut <= (multiplicand_bits + multiplier_bits - 3)
         ):
             is_valid = False
-            error_message = "V-cut should be > 0 but <= Total Multiplicand bits"
+            error_message = "V-cut should be > 0 but <= (Total Multiplicand bits + Total Multiplier bits - 3) "
 
         return is_valid, error_message

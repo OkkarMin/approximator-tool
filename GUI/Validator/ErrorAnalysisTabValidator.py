@@ -18,15 +18,11 @@ class ErrorAnalysisTabValidator:
                 error_message = "Total bits should be >= 4 for Inaccurate Adders"
 
             # Inaccurate Adders should have inacc_bits >=3 but <= total_bits - 1
-            if not (3 <= inacc_bits <= total_bits - 1):
+            elif not (3 <= inacc_bits <= total_bits - 1):
                 is_valid = False
                 error_message = "Inaccurate bits should be >= 3 but <= Total bits-1"
 
         if type_of_error_analysis == "Multiplier_Error_Analysis":
-            # V-cut should be > 0 but <= multiplicand_bits
-            if not (0 < v_cut <= multiplicand_bits):
-                is_valid = False
-                error_message = "V-cut should be > 0 but <= Total Multiplicand bits"
 
             # Total multiplicand bits and multiplier bits should be >=3
             if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
@@ -34,5 +30,10 @@ class ErrorAnalysisTabValidator:
                 error_message = (
                     "Total Multiplicand bits and Total Multiplier bits should be >= 3"
                 )
+
+            # V-cut should be > 0 but <= (multiplicand_bits + multiplier_bits - 3)
+            elif not (0 < v_cut <= (multiplicand_bits + multiplier_bits - 3)):
+                is_valid = False
+                error_message = "V-cut should be > 0 but <= (Total Multiplicand bits + Total Multiplier bits -3)"
 
         return is_valid, error_message

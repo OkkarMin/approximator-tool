@@ -161,10 +161,10 @@ def ApproxMultiplierAccuracy():
             N2 = int(N2_str)
             print()
 
-            if N1 < 2 or N2 < 2:
+            if N1 < 3 or N2 < 3:
                 print(
                     "\nWARNING - Total number of multiplicand and multiplier bits \n \
-                should greater than or equal to 2 ! Please try again!\n"
+                should greater than or equal to 3 ! Please try again!\n"
                 )
                 continue
 
