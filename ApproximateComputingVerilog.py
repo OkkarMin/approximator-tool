@@ -376,7 +376,7 @@ def ASIC_Based_VerilogMultiplier():  # ASIC Based Verilog Multiplier
                         + " both inclusive) - \t"
                     )
                     V_cut = int(V_cut_str)
-                    if V_cut > M or V_cut < 0:
+                    if V_cut > (M+N-3) or V_cut < 0:
                         print(
                             "\nWARNING - The position of V-cut should lie between 0 and "
                             + str(M+N-3)
