@@ -8,19 +8,31 @@ from GUI.Utils.FileSaver import save_to_file
 
 def VerilogCodeGeneratorTabLogic(window, event, values):
     # Extract user chosen options
-    # When text input is not number, set is as 4
+    # When text input is not number, set an error flag
     # to make sure GUI keep running without crashing
     # input validation is performed when 'Generate' button is pressed
     try:
         total_bits = int(values["total_bits"])
-        multiplicand_bits = int(values["multiplicand_bits"])
-        multiplier_bits = int(values["multiplier_bits"])
-        v_cut = int(values["v_cut"])
+        adder_value_error=0
     except ValueError:
         total_bits = 4
+        adder_value_error=1
+
+    try:
+        multiplicand_bits = int(values["multiplicand_bits"])
+        multiplier_bits = int(values["multiplier_bits"])
+        multiplier_value_error=0
+    except ValueError:
         multiplicand_bits = 4
         multiplier_bits = 4
+        multiplier_value_error=1
+    try:
+        v_cut = int(values["v_cut"])
+        vcut_value_error=0
+    except ValueError:
         v_cut = 4
+        vcut_value_error=1
+
     acc_bits = int(values["acc_inacc_bits_slider"])
     inacc_bits = total_bits - acc_bits
     type_of_verilog_code = [k for k, v in values.items() if v is True][0]
@@ -96,7 +108,9 @@ def VerilogCodeGeneratorTabLogic(window, event, values):
         user_chosen_options["type_of_verilog_code"] = type_of_verilog_code
         user_chosen_options["v_cut"] = v_cut
         user_chosen_options["folder_to_save_file"] = folder_to_save_file
-
+        user_chosen_options['adder_value_error']=adder_value_error
+        user_chosen_options['multiplier_value_error']=multiplier_value_error
+        user_chosen_options['vcut_value_error']=vcut_value_error
         pprint(user_chosen_options)
 
         is_valid, error_message = validate(

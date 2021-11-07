@@ -20,10 +20,16 @@ class AccuracyAnalysisTabValidator:
         multiplier_second_unsigned_number = user_chosen_options[
             "multiplier_second_unsigned_number"
         ]
+        accuracy_analysis_adder_value_error = user_chosen_options['accuracy_analysis_adder_value_error']
+        accuracy_analysis_multiplier_value_error = user_chosen_options['accuracy_analysis_multiplier_value_error']
 
         if type_of_accuracy_analysis == "Adder_Accuracy_Analysis":
+            # Adder inputs filled by the user must be integer
+            if accuracy_analysis_adder_value_error==1:
+                is_valid = False
+                error_message = "Inputs filled by the user must be integer"
             # Inaccurate Adders should have total_bits >= 4
-            if not total_bits >= 4:
+            elif not total_bits >= 4:
                 is_valid = False
                 error_message = "Total bits should be >= 4 for Inaccurate Adders"
 
@@ -52,9 +58,12 @@ class AccuracyAnalysisTabValidator:
 
 
         if type_of_accuracy_analysis == "Multiplier_Accuracy_Analysis":
-
+            # multiplier inputs filled by the user must be integer
+            if accuracy_analysis_multiplier_value_error==1:
+                is_valid = False
+                error_message = "Inputs filled by the user must be integer"
             # Total multiplicand bits and multiplier bits should be >=3
-            if not (multiplicand_bits >= 3 and multiplier_bits >= 3):
+            elif not (multiplicand_bits >= 3 and multiplier_bits >= 3):
                 is_valid = False
                 error_message = (
                     "Total Multiplicand bits and Total Multiplier bits should be >= 3"

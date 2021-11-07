@@ -5,19 +5,25 @@ from GUI.Validator import validate
 
 def ErrorAnalysisTabLogic(window, event, values):
     # Extract user chosen options
-    # When text input is not number, set is as 4
+    # When text input is not number, set an error flag
     # to make sure GUI keep running without crashing
     # input validation is performed when 'Generate' button is pressed
     try:
         total_bits = int(values["total_bits_error_analysis"])
+        error_analysis_adder_value_error=0
+    except ValueError:
+        total_bits = 4
+        error_analysis_adder_value_error=1
+    try:
         multiplicand_bits = int(values["multiplicand_bits_error_analysis"])
         multiplier_bits = int(values["multiplier_bits_error_analysis"])
         v_cut = int(values["v_cut_error_analysis"])
+        error_analysis_multiplier_value_error=0
     except ValueError:
-        total_bits = 4
         multiplicand_bits = 4
         multiplier_bits = 4
         v_cut = 4
+        error_analysis_multiplier_value_error=1
     acc_bits = int(values["acc_inacc_bits_slider_error_analysis"])
     inacc_bits = total_bits - acc_bits
     type_of_error_analysis = (
@@ -63,6 +69,8 @@ def ErrorAnalysisTabLogic(window, event, values):
         user_chosen_options["multiplier_bits"] = multiplier_bits
         user_chosen_options["total_bits"] = total_bits
         user_chosen_options["type_of_error_analysis"] = type_of_error_analysis
+        user_chosen_options["error_analysis_adder_value_error"] = error_analysis_adder_value_error
+        user_chosen_options["error_analysis_multiplier_value_error"] = error_analysis_multiplier_value_error
         if type_of_error_analysis == "Adder_Error_Analysis":
             type_of_error_analysis_hardware = values[
                 "ASIC_Adder_Error_Analysis_Hardware_Type"

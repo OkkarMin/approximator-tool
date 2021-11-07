@@ -8,31 +8,40 @@ from GUI.Validator import validate
 
 def AccuracyAnalysisTabLogic(window, event, values):
     # Extract user chosen options
-    # When text input is not number, set is as 4
+    # When text input is not number, set an error flag
     # to make sure GUI keep running without crashing
     # input validation is performed when 'Generate' button is pressed
     try:
         total_bits = int(values["total_bits_accuracy_analysis"])
+        adder_first_unsigned_number = int(values["adder_first_unsigned_number"])
+        adder_second_unsigned_number = int(values["adder_second_unsigned_number"])
+        accuracy_analysis_adder_value_error=0
+    except ValueError:
+        total_bits = 4
+        adder_first_unsigned_number = 12
+        adder_second_unsigned_number = 12
+        accuracy_analysis_adder_value_error=1
+
+    try:
         multiplicand_bits = int(values["multiplicand_bits_accuracy_analysis"])
         multiplier_bits = int(values["multiplier_bits_accuracy_analysis"])
         v_cut = int(values["v_cut_accuracy_analysis"])
-        adder_first_unsigned_number = int(values["adder_first_unsigned_number"])
-        adder_second_unsigned_number = int(values["adder_second_unsigned_number"])
         multiplier_first_unsigned_number = int(
             values["multiplier_first_unsigned_number"]
         )
         multiplier_second_unsigned_number = int(
             values["multiplier_second_unsigned_number"]
         )
+        accuracy_analysis_multiplier_value_error=0
     except ValueError:
-        total_bits = 4
         multiplicand_bits = 4
         multiplier_bits = 4
         v_cut = 4
-        adder_first_unsigned_number = 12
-        adder_second_unsigned_number = 12
         multiplier_first_unsigned_number = 12
         multiplier_second_unsigned_number = 12
+        accuracy_analysis_multiplier_value_error=1
+
+
     acc_bits = int(values["acc_inacc_bits_slider_accuracy_analysis"])
     inacc_bits = total_bits - acc_bits
     type_of_accuracy_analysis = (
@@ -95,6 +104,8 @@ def AccuracyAnalysisTabLogic(window, event, values):
         user_chosen_options["multiplier_bits"] = multiplier_bits
         user_chosen_options["total_bits"] = total_bits
         user_chosen_options["type_of_accuracy_analysis"] = type_of_accuracy_analysis
+        user_chosen_options['accuracy_analysis_adder_value_error'] = accuracy_analysis_adder_value_error
+        user_chosen_options['accuracy_analysis_multiplier_value_error'] = accuracy_analysis_multiplier_value_error
         if type_of_accuracy_analysis == "Adder_Accuracy_Analysis":
             type_of_accuracy_analysis_hardware = values[
                 "ASIC_Adder_Accuracy_Analysis_Hardware_Type"
