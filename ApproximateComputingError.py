@@ -1,6 +1,9 @@
 import AdderError
 import MultiplierError
 
+from timeit import default_timer as timer
+from datetime import timedelta
+
 
 def ApproxAdderError():
     exit_flag = 0
@@ -48,6 +51,8 @@ def ApproxAdderError():
                 )
                 continue
 
+            start = timer()
+
             if adder_type_inp == "1":
                 AdderError.HEAA(num_bits, num_inacc_bits)
 
@@ -59,6 +64,14 @@ def ApproxAdderError():
 
             elif adder_type_inp == "4":
                 AdderError.M_HERLOA(num_bits, num_inacc_bits)
+
+            end = timer()
+
+            print(
+                "\nTime taken to generate Verilog code = ",
+                timedelta(seconds=end - start),
+                " seconds",
+            )
 
         else:
             print("\nWARNING - Invalid adder type (Please enter correct adder type)\n")
@@ -119,7 +132,17 @@ def ApproxMultiplierError():
                     )
                     continue
 
+                start = timer()
+
                 MultiplierError.PAAM01_VCut(N1, N2, V_val)
+
+                end = timer()
+
+                print(
+                    "\nTime taken to generate Verilog code = ",
+                    timedelta(seconds=end - start),
+                    " seconds",
+                )
             # We can add elif statement here if we use more multiplier types other than PAAM01-Vcut later on
 
         else:

@@ -4,6 +4,9 @@ import AdderSumCalc
 import VerilogStructuralAdder
 import VerilogMultiplierCode
 
+from timeit import default_timer as timer
+from datetime import timedelta
+
 
 def FPGA_Based_VerilogAdder():  # FPGA Based Verilog Adder (Generalized Adder)
     exit_flag = 0
@@ -247,6 +250,8 @@ def ASIC_Based_VerilogAdder():  # ASIC Based Verilog Adder (Generalized Adder)
                 )
                 continue
 
+            start = timer()
+
             if adder_type_inp == "1":
                 verilog_code = VerilogStructuralAdder.HEAA_Generic(
                     num_bits, num_inacc_bits
@@ -289,6 +294,14 @@ def ASIC_Based_VerilogAdder():  # ASIC Based Verilog Adder (Generalized Adder)
         verilog_file = open(file, "w")
         verilog_file.write(verilog_code)
         verilog_file.close()
+
+        end = timer()
+
+        print(
+            "\nTime taken to generate Verilog code = ",
+            timedelta(seconds=end - start),
+            " seconds",
+        )
 
         if exit_flag == 1:
             break
@@ -357,6 +370,9 @@ def ASIC_Based_VerilogMultiplier():  # ASIC Based Verilog Multiplier
                         "\nWARNING - Total number of multiplier bits should greater than or equal to 3 ! Please try again!\n"
                     )
                     continue
+
+                start = timer()
+
                 if multiplier_type_inp == "1":
                     verilog_code = VerilogMultiplierCode.accurate_MxN_multiplier(
                         M, N
@@ -372,14 +388,14 @@ def ASIC_Based_VerilogMultiplier():  # ASIC Based Verilog Multiplier
                 elif multiplier_type_inp == "3":
                     V_cut_str = input(
                         "Enter position of V-cut (between 0 and "
-                        + str(M+N-3)
+                        + str(M + N - 3)
                         + " both inclusive) - \t"
                     )
                     V_cut = int(V_cut_str)
-                    if V_cut > (M+N-3) or V_cut < 0:
+                    if V_cut > (M + N - 3) or V_cut < 0:
                         print(
                             "\nWARNING - The position of V-cut should lie between 0 and "
-                            + str(M+N-3)
+                            + str(M + N - 3)
                             + " (both inclusive)! Please try again!\n"
                         )
                         continue
@@ -467,6 +483,14 @@ def ASIC_Based_VerilogMultiplier():  # ASIC Based Verilog Multiplier
         verilog_file = open(file, "w")
         verilog_file.write(verilog_code)
         verilog_file.close()
+
+        end = timer()
+
+        print(
+            "\nTime taken to generate Verilog code = ",
+            timedelta(seconds=end - start),
+            " seconds",
+        )
 
         if exit_flag == 1:
             break

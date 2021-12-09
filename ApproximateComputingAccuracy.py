@@ -1,6 +1,9 @@
 import ApproxAdders
 import ApproxMultipliers
 
+from timeit import default_timer as timer
+from datetime import timedelta
+
 
 def ApproxAdderAccuracy():
     exit_flag = 0
@@ -72,6 +75,8 @@ def ApproxAdderAccuracy():
             accurate_sum = ApproxAdders.accurate_adder(num1, num2, num_bits)
             print("\nAccurate Adder Sum:\t", accurate_sum, "\n")
 
+            start = timer()
+
             if adder_type_inp == "1":
                 HEAA_sum = ApproxAdders.HEAA_approx(
                     num1, num2, num_bits, num_inacc_bits
@@ -123,6 +128,14 @@ def ApproxAdderAccuracy():
         else:
             print("\nWARNING - Invalid adder type (Please enter correct adder type)\n")
             continue
+
+        end = timer()
+
+        print(
+            "\nTime taken to generate Verilog code = ",
+            timedelta(seconds=end - start),
+            " seconds",
+        )
 
         if exit_flag == 1:
             break
@@ -204,6 +217,8 @@ def ApproxMultiplierAccuracy():
                     )
                     continue
 
+                start = timer()
+
                 PAAM01_VCut_product = ApproxMultipliers.PAAM01(
                     num1, num2, N1, N2, V_val
                 )
@@ -231,6 +246,14 @@ def ApproxMultiplierAccuracy():
                 "\nWARNING - Invalid multiplier type (Please enter correct multiplier type)\n"
             )
             continue
+
+        end = timer()
+
+        print(
+            "\nTime taken to generate Verilog code = ",
+            timedelta(seconds=end - start),
+            " seconds",
+        )
 
         if exit_flag == 1:
             break
