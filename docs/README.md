@@ -1,15 +1,38 @@
 # Approximate Computing Tool <!-- {docsify-ignore} -->
 
-## What it is
+# What is Approximator
 
-Command Line Tool and GUI Tool that have 3 features:
+Approximator is an open-source software tool that can be used to automatically generate Verilog HDL codes of approximate arithmetic circuits proposed by our research team. Approximator can be used to generate Verilog codes of approximate adders and approximate multiplier of any specified size, corresponding to FPGA and ASIC (standard cell) based implementations. The approximate adder architectures include HEAA [1], HOERAA [2], HOAANED [3] and M-HERLOA [4]. The approximate multiplier architecture includes AAM01/PAAM01 [5,6]
 
-- [Verilog Code Generator](using_gui_tool.md#verilog-code-generator)
-  - Generate verilog code (.v file) of inaccurate adder or inaccurate multiplier based on user chosen options
-- [Error Analyzers](using_gui_tool.md#error-analzyer)
-  - Analyze error rates of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using 1 million monte carlo random sampled unsigned numbers
-- [Accuracy Analzyer](using_gui_tool.md#accuracy-analzyer)
-  - Analyze accuracy of inaccurate adder/inaccurate multiplier by comparing it with accurate adder/accurate multiplier using two user provided unsigned numbers
+Approximator - Publication
+If you use Approximator in your research, please cite the following publication to acknowledge our effort.
+P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Approximator: A Software Tool for Automatic Generation of Approximate Arithmetic Circuits", Computers, vol. 11, no. 1, Article #11, pp. 1-32, January 2022.
+
+#### Citations
+
+1. HEAA
+
+   P. Balasubramanian, D.L. Maskell, “Hardware Efficient Approximate Adder Design”, Proceedings of IEEE Region 10 Conference (TENCON), pp. 806-810, 2018, Jeju, South Korea.
+
+2. HOERAA
+
+   P. Balasubramanian, D.L. Maskell, “Hardware Optimized and Error Reduced Approximate Adder”, Electronics, vol. 8, no. 11, Article #1212, pp. 1-15, October 2019.
+
+3. HOAANED
+
+   P. Balasubramanian, R. Nayar, D.L. Maskell, N.E. Mastorakis, “An Approximate Adder with a Near-Normal Error Distribution: Design, Error Analysis and Practical Application”, IEEE Access, vol. 9, pp. 4518-4530, January 2021.
+
+4. M-HERLOA
+
+   P. Balasubramanian, R. Nayar, D.L. Maskell, "An Approximate Adder with Reduced Error and Optimized Design Metrics", Accepted for presentation and publication in the Proceedings of the 17th IEEE Asia Pacific Conference on Circuits and Systems (APCCAS 2021), November 22-26, 2021, Penang, Malaysia.
+
+5. Approximate Array Multipliers (Image Denoising application)
+
+   P. Balasubramanian, R. Nayar, D.L. Maskell, “Approximate Array Multipliers”, Electronics, (Special Issue: Circuits and Systems for Approximate Computing), vol. 10, no. 5, Article #630, pp. 1-20, March 2021.
+
+6. Approximate Array Multiplier (Image Blending application)
+
+   P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Image Blending using Approximate Multiplication", Proceedings of IEEE 32nd International Conference on Microelectronics (MIEL 2021), pp. 305-310, 2021, Niš, Serbia.
 
 ## Requirements
 
