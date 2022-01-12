@@ -2,12 +2,13 @@
 
 # What is Approximator
 
-Approximator is an open-source software tool that can be used to automatically generate Verilog HDL codes of approximate arithmetic circuits proposed by our research team. Approximator can be used to generate Verilog codes of approximate adders and approximate multiplier of any specified size, corresponding to FPGA and ASIC (standard cell) based implementations. The approximate adder architectures include HEAA [1], HOERAA [2], HOAANED [3] and M-HERLOA [4]. The approximate multiplier architecture includes AAM01/PAAM01 [5,6]
+Approximator is an open-source software tool that can be used to automatically generate Verilog HDL codes of approximate arithmetic circuits proposed by our research team. Approximator can be used to generate Verilog codes of approximate adders and approximate multiplier of any specified size, corresponding to FPGA and ASIC (standard cell) based implementations. The approximate adder architectures include HEAA [1], HOERAA [2], HOAANED [3] and M-HERLOA [4]. The approximate multiplier architecture includes PAAM01/AAM01 [5,6]
 
 # Approximator - Publication
 
 If you use Approximator in your research, please cite the following publication to acknowledge our effort.
-P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Approximator: A Software Tool for Automatic Generation of Approximate Arithmetic Circuits", Computers, vol. 11, no. 1, Article #11, pp. 1-32, January 2022.
+
+P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Approximator: A Software Tool for Automatic Generation of Approximate Arithmetic Circuits", Computers, vol. 11, no. 1, Article #11, pp. 1-31, January 2022.
 
 #### Citations
 
