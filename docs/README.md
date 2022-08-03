@@ -36,6 +36,13 @@ P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Approximator: A Software To
 
    P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Image Blending using Approximate Multiplication", Proceedings of IEEE 32nd International Conference on Microelectronics (MIEL 2021), pp. 305-310, 2021, Niš, Serbia.
 
+#### Contributors
+
+- P. Balasubramanian
+- R. Nayar
+- D.L. Maskell
+- O. Min
+
 ## Requirements
 
 !> Be mindful of version numbers, the tools were developed and tested with the versions listed below
