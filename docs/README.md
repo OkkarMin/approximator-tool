@@ -26,7 +26,7 @@ P. Balasubramanian, R. Nayar, O. Min, D.L. Maskell, "Approximator: A Software To
 
 4. M-HERLOA
 
-   P. Balasubramanian, R. Nayar, D.L. Maskell, "An Approximate Adder with Reduced Error and Optimized Design Metrics", Accepted for presentation and publication in the Proceedings of the 17th IEEE Asia Pacific Conference on Circuits and Systems (APCCAS 2021), November 22-26, 2021, Penang, Malaysia.
+   P. Balasubramanian, R. Nayar, D.L. Maskell, "An Approximate Adder with Reduced Error and Optimized Design Metrics", Proceedings of 17th IEEE Asia Pacific Conference on Circuits and Systems (APCCAS 2021), pp. 21-24, 2021, Penang, Malaysia.
 
 5. Approximate Array Multipliers (Image Denoising application)
 
